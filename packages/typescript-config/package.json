@@ -7,7 +7,7 @@
     "*.json"
   ],
   "scripts": {
-    "format": "prettier --write ."
+    "format": "prettier --write . --ignore-path ../../.gitignore"
   },
   "dependencies": {
     "@repo/prettier-config": "workspace:*"
