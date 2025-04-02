@@ -10,6 +10,7 @@ Modern monorepo using pnpm, Turborepo, and Changesets.
 - 🧹 [Husky](https://typicode.github.io/husky/) - Git hooks
 - ✅ [lint-staged](https://github.com/okonet/lint-staged) - Run linters on staged files
 - 📝 [commitlint](https://commitlint.js.org/) - Enforce conventional commits
+- 🔄 [TypeScript](https://www.typescriptlang.org/) - Shared TypeScript configurations
 
 ## Requirements
 
@@ -22,6 +23,7 @@ Modern monorepo using pnpm, Turborepo, and Changesets.
 monorepo-starter/
 ├── apps/                 # Application packages
 ├── packages/             # Shared packages, libraries, and utilities
+│   └── typescript-config/ # Shared TypeScript configurations
 ├── .changeset/          # Changeset files
 ├── package.json         # Root package.json
 ├── pnpm-workspace.yaml  # pnpm workspace configuration
