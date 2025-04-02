@@ -9,6 +9,9 @@ A modern monorepo starter template using pnpm workspaces, Turborepo, and Changes
 - 🚢 [Changesets](https://github.com/changesets/changesets) for versioning and package publishing
 - 📱 Scalable monorepo architecture with apps and packages directories
 - 🔄 Configured scripts for development, building, testing, and deployment
+- 🧹 [Husky](https://typicode.github.io/husky/) for Git hooks
+- ✅ [lint-staged](https://github.com/okonet/lint-staged) for running linters on staged files
+- 📝 [commitlint](https://commitlint.js.org/) for enforcing conventional commit messages
 
 ## Requirements
 
@@ -62,17 +65,127 @@ pnpm check-types
 pnpm format
 ```
 
+## Code Quality and Git Workflow
+
+This repository is set up with several tools to ensure code quality and consistent commit history:
+
+### Husky Git Hooks
+
+[Husky](https://typicode.github.io/husky/) is configured to run the following Git hooks:
+
+- **pre-commit**: Runs lint-staged to lint and format staged files before commit
+- **commit-msg**: Validates commit messages with commitlint
+
+### Lint Staged
+
+[lint-staged](https://github.com/okonet/lint-staged) runs linters and formatters only on files that are staged for commit:
+
+```json
+"lint-staged": {
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --fix",
+    "prettier --write"
+  ],
+  "*.{json,md,yml,yaml}": [
+    "prettier --write"
+  ]
+}
+```
+
+### Conventional Commits
+
+This project follows the [Conventional Commits](https://www.conventionalcommits.org/) specification for commit messages.
+
+#### Commit Message Format
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+Types:
+
+- `feat`: A new feature
+- `fix`: A bug fix
+- `docs`: Documentation only changes
+- `style`: Changes that do not affect the meaning of the code
+- `refactor`: A code change that neither fixes a bug nor adds a feature
+- `perf`: A code change that improves performance
+- `test`: Adding missing tests or correcting existing tests
+- `build`: Changes that affect the build system or external dependencies
+- `ci`: Changes to our CI configuration files and scripts
+- `chore`: Other changes that don't modify src or test files
+
+#### Using @commitlint/prompt-cli
+
+This project uses [@commitlint/prompt-cli](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/prompt-cli) to guide you through creating commits that follow the conventional commit format:
+
+```bash
+# Use the commit script defined in package.json
+pnpm commit
+```
+
+This will launch an interactive prompt that guides you through creating a properly formatted commit message that adheres to the commitlint rules.
+
+### Creating a Commit
+
+1. Stage your changes:
+
+   ```bash
+   git add .
+   ```
+
+2. Use the interactive commit prompt:
+
+   ```bash
+   pnpm commit
+   ```
+
+   Or manually create a commit with a conventional message:
+
+   ```bash
+   git commit -m "type(scope): subject" -m "body"
+   ```
+
+   Example:
+
+   ```bash
+   git commit -m "feat(ui): add new button component" -m "Added a reusable button component to the UI library"
+   ```
+
 ## Publishing Packages
 
 This project uses [Changesets](https://github.com/changesets/changesets) for versioning and publishing packages to npm.
 
-```bash
-# Create a new changeset
-pnpm changeset
+### Managing Changes with Changesets
 
-# Publish packages
-pnpm publish-packages
-```
+When making changes to packages, follow these steps:
+
+1. **Create a changeset** to document your changes:
+
+   ```bash
+   pnpm changeset
+   ```
+
+   This interactive prompt will guide you to select affected packages, bump types, and add a description.
+
+2. **Version packages** when ready to release:
+
+   ```bash
+   pnpm changeset version
+   ```
+
+   This updates package versions and generates changelogs based on your changesets.
+
+3. **Publish packages**:
+   ```bash
+   pnpm publish-packages
+   ```
+
+For CI/CD workflows, consider using [Changesets GitHub Action](https://github.com/changesets/action).
 
 ## Adding New Apps and Packages
 
