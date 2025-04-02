@@ -78,19 +78,7 @@ This repository is set up with several tools to ensure code quality and consiste
 
 ### Lint Staged
 
-[lint-staged](https://github.com/okonet/lint-staged) runs linters and formatters only on files that are staged for commit:
-
-```json
-"lint-staged": {
-  "*.{js,jsx,ts,tsx}": [
-    "eslint --fix",
-    "prettier --write"
-  ],
-  "*.{json,md,yml,yaml}": [
-    "prettier --write"
-  ]
-}
-```
+[lint-staged](https://github.com/okonet/lint-staged) runs linters and formatters only on files that are staged for commit.
 
 ### Conventional Commits
 
