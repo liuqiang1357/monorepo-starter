@@ -53,12 +53,12 @@ pnpm format      # Format code
 
 ### Husky Git Hooks
 
-- **pre-commit**: Runs type checking and linting/formatting on code
+- **pre-commit**: Runs type checking and linting on code
 - **commit-msg**: Validates commit messages
 
 ### lint-staged
 
-The project uses an external [lint-staged](https://github.com/okonet/lint-staged) configuration file (`lint-staged.config.js`). This configuration will be expanded when ESLint and Prettier are added to the project.
+Runs linters and formatters on staged files before commit. Configured to run ESLint, Prettier, and TypeScript type checking via the `lint-staged.config.js` file.
 
 ### Conventional Commits
 
