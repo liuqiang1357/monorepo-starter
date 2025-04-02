@@ -1,3 +1,3 @@
 export default {
-  "*.{js,jsx,ts,tsx,json,md}": 'echo "Staged files would be linted here"',
+  '*.{js,jsx,ts,tsx,json,md}': 'prettier --write',
 };

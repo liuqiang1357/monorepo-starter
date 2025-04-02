@@ -24,7 +24,7 @@ Or extend in a config file:
 
 ```js
 // .prettierrc.js
-import prettierConfig from "@repo/prettier-config";
+import prettierConfig from '@repo/prettier-config';
 
 export default {
   ...prettierConfig,

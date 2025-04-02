@@ -2,7 +2,14 @@
   "name": "@repo/typescript-config",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "files": [
     "*.json"
-  ]
+  ],
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@repo/prettier-config": "workspace:*"
+  }
 }

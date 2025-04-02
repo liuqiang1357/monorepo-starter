@@ -6,6 +6,9 @@
   "exports": {
     ".": "./index.js"
   },
+  "scripts": {
+    "format": "prettier --write ."
+  },
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "prettier": "^3.5.3",

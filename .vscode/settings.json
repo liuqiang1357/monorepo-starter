@@ -11,12 +11,6 @@
 
   // Extensions settings
   "eslint.workingDirectories": [{ "mode": "auto" }],
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    ".*Class",
-    ".*ClassName",
-    "classNames"
-  ],
+  "tailwindCSS.classAttributes": ["class", "className", ".*Class", ".*ClassName", "classNames"],
   "tailwindCSS.classFunctions": ["cva", "cx", "cn"]
 }
