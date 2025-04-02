@@ -11,6 +11,7 @@ Modern monorepo using pnpm, Turborepo, and Changesets.
 - ✅ [lint-staged](https://github.com/okonet/lint-staged) - Run linters on staged files
 - 📝 [commitlint](https://commitlint.js.org/) - Enforce conventional commits
 - 🔄 [TypeScript](https://www.typescriptlang.org/) - Shared TypeScript configurations
+- 🎨 [Prettier](https://prettier.io/) - Code formatting with shared configurations
 
 ## Requirements
 
@@ -23,7 +24,8 @@ Modern monorepo using pnpm, Turborepo, and Changesets.
 monorepo-starter/
 ├── apps/                 # Application packages
 ├── packages/             # Shared packages, libraries, and utilities
-│   └── typescript-config/ # Shared TypeScript configurations
+│   ├── typescript-config/ # Shared TypeScript configurations
+│   └── prettier-config/  # Shared Prettier configurations
 ├── .changeset/          # Changeset files
 ├── package.json         # Root package.json
 ├── pnpm-workspace.yaml  # pnpm workspace configuration
