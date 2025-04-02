@@ -11,19 +11,12 @@
 
   // Extensions settings
   "eslint.workingDirectories": [{ "mode": "auto" }],
-  "tailwindCSS.classAttributes": ["class", "className", ".*Class", ".*ClassName", "classNames"],
-  "tailwindCSS.experimental.classRegex": [
-    [
-      "(?:cva|cx|cn)\\(([^)(]*(?:\\([^)(]*(?:\\([^)(]*(?:\\([^)(]*\\)[^)(]*)*\\)[^)(]*)*\\)[^)(]*)*)\\)",
-      "'([^']*)'"
-    ],
-    [
-      "(?:cva|cx|cn)\\(([^)(]*(?:\\([^)(]*(?:\\([^)(]*(?:\\([^)(]*\\)[^)(]*)*\\)[^)(]*)*\\)[^)(]*)*)\\)",
-      "\"([^\"]*)\""
-    ],
-    [
-      "(?:cva|cx|cn)\\(([^)(]*(?:\\([^)(]*(?:\\([^)(]*(?:\\([^)(]*\\)[^)(]*)*\\)[^)(]*)*\\)[^)(]*)*)\\)",
-      "`([^`]*)`"
-    ]
-  ]
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    ".*Class",
+    ".*ClassName",
+    "classNames"
+  ],
+  "tailwindCSS.classFunctions": ["cva", "cx", "cn"]
 }
