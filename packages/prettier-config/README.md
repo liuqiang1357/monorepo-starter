@@ -32,6 +32,19 @@ export default {
 };
 ```
 
-## Configuration
+## Features
 
-Key settings: 100 character line width, single quotes, arrow function parentheses avoided when possible, and Tailwind CSS class sorting.
+This configuration includes:
+
+- Sensible defaults for code formatting
+- Import sorting with [@ianvs/prettier-plugin-sort-imports](https://github.com/IanVS/prettier-plugin-sort-imports)
+- Package.json formatting
+- Tailwind CSS class sorting
+
+## Ignoring Files
+
+By default, Prettier respects your `.gitignore` file and will not format files that are ignored by Git. If you want to override this behavior, you can create a `.prettierignore` file with specific rules.
+
+## Extending
+
+You can extend or override any of these settings in your local project configuration.
