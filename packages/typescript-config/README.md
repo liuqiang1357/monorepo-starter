@@ -8,7 +8,7 @@ Shared TypeScript configurations for the monorepo.
 
 ```json
 {
-  "extends": "@monorepo/typescript-config/nextjs.json",
+  "extends": "@repo/typescript-config/nextjs.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
@@ -18,7 +18,7 @@ Shared TypeScript configurations for the monorepo.
 
 ```json
 {
-  "extends": "@monorepo/typescript-config/react-library.json",
+  "extends": "@repo/typescript-config/react-library.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }
@@ -28,7 +28,7 @@ Shared TypeScript configurations for the monorepo.
 
 ```json
 {
-  "extends": "@monorepo/typescript-config/node-library.json",
+  "extends": "@repo/typescript-config/node-library.json",
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
