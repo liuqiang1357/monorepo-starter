@@ -1,9 +1,11 @@
-/**
- * @type {import('prettier').Config}
- */
+/** @typedef {import("prettier").Config} PrettierConfig */
+/** @typedef {import("@ianvs/prettier-plugin-sort-imports").PluginConfig} SortImportsConfig */
+/** @typedef {import("prettier-plugin-tailwindcss").PluginOptions} TailwindConfig */
+
+/** @type { PrettierConfig | SortImportsConfig | TailwindConfig } */
 export default {
   arrowParens: 'avoid',
-  printWidth: 100,
+  printWidth: 2,
   singleQuote: true,
   plugins: [
     '@ianvs/prettier-plugin-sort-imports',
