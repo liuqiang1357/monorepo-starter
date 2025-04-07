@@ -13,16 +13,16 @@ export default tseslint.config(
       turbo.configs['flat/recommended'],
       prettier,
     ],
-    linterOptions: {
-      reportUnusedDisableDirectives: 'error',
+    plugins: {
+      'check-file': checkFile,
     },
     languageOptions: {
       parserOptions: {
         projectService: true,
       },
     },
-    plugins: {
-      'check-file': checkFile,
+    linterOptions: {
+      reportUnusedDisableDirectives: 'error',
     },
     rules: {
       'check-file/filename-naming-convention': ['error', { '**/*.{js,jsx,ts,tsx}': '[0-9a-z-.]+' }],
