@@ -1,1 +1,3 @@
-export { default } from '@repo/prettier-config';
+import config from './src/index.js';
+
+export default config;

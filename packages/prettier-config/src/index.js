@@ -5,7 +5,7 @@
 /** @type { PrettierConfig | SortImportsConfig | TailwindConfig } */
 export default {
   arrowParens: 'avoid',
-  printWidth: 2,
+  printWidth: 100,
   singleQuote: true,
   plugins: [
     '@ianvs/prettier-plugin-sort-imports',

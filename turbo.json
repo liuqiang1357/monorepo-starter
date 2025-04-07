@@ -18,6 +18,9 @@
     "lint": {
       "dependsOn": ["^build"]
     },
+    "lint-staged": {
+      "cache": false
+    },
     "start": {
       "dependsOn": ["build"],
       "cache": false,

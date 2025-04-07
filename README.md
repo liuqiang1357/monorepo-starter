@@ -8,7 +8,6 @@ Modern monorepo using pnpm, Turborepo, and Changesets.
 - 🏎️ [Turborepo](https://turbo.build/) - High-performance build system
 - 🚢 [Changesets](https://github.com/changesets/changesets) - Versioning and publishing
 - 🧹 [Husky](https://typicode.github.io/husky/) - Git hooks
-- ✅ [lint-staged](https://github.com/okonet/lint-staged) - Run linters on staged files
 - 📝 [commitlint](https://commitlint.js.org/) - Enforce conventional commits
 - 🔄 [TypeScript](https://www.typescriptlang.org/) - Shared TypeScript configurations
 - 🎨 [Prettier](https://prettier.io/) - Code formatting with shared configurations
@@ -41,10 +40,19 @@ cd monorepo-starter
 pnpm install
 
 # Common commands
-pnpm dev         # Start development
+```
+
+## Common Commands
+
+```bash
+# Development
+pnpm dev         # Start development servers
 pnpm build       # Build all packages
 pnpm test        # Run tests
+
+# Code Quality
 pnpm lint        # Run linting
+pnpm lint-staged # Run staged files linting
 pnpm check-types # Type checking
 pnpm format      # Format code
 ```
@@ -55,10 +63,6 @@ pnpm format      # Format code
 
 - **pre-commit**: Runs type checking and linting on code
 - **commit-msg**: Validates commit messages
-
-### lint-staged
-
-Runs linters and formatters on staged files before commit. Configured to run ESLint, Prettier, and TypeScript type checking via the `lint-staged.config.js` file.
 
 ### Conventional Commits
 

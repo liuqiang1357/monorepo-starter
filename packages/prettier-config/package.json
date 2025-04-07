@@ -4,16 +4,23 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./index.js"
+    ".": "./src/index.js"
   },
+  "files": [
+    "src"
+  ],
   "scripts": {
     "check-types": "tsc",
     "format": "prettier --write . --ignore-path ../../.gitignore"
   },
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
-    "prettier": "^3.5.3",
     "prettier-plugin-packagejson": "^2.5.10",
     "prettier-plugin-tailwindcss": "^0.6.11"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
   }
 }
