@@ -5,9 +5,10 @@
   "type": "module",
   "exports": {
     "./postcss.config": "./postcss.config.js",
-    "./globals.css": "./src/globals.css",
-    "./utils": "./src/utils.ts",
-    "./*": "./src/*.tsx"
+    "./globals.css": "./src/styles/globals.css",
+    "./lib/*": "./src/lib/*.ts",
+    "./components/*": "./src/components/*.tsx",
+    "./hooks/*": "./src/hooks/*.ts"
   },
   "scripts": {
     "add-ui": "pnpm dlx shadcn@latest add && prettier src --write --list-different",
