@@ -28,6 +28,10 @@
     },
     "test": {
       "dependsOn": ["^build"]
+    },
+    "ui-add": {
+      "cache": false,
+      "interactive": true
     }
   }
 }
