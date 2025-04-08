@@ -1,25 +1,18 @@
 import '@repo/ui/globals.css';
-import { Geist, Geist_Mono } from 'next/font/google';
-import { Providers } from '@/components/providers';
+import { Metadata } from 'next';
+import { ReactNode } from 'react';
+import { Providers } from '@/components/app/providers';
+import { appName } from '@/configs/app';
+import { fontsClassName } from '@/lib/utils/fonts';
 
-const fontSans = Geist({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
+export const metadata: Metadata = {
+  title: appName,
+};
 
-const fontMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-});
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}>
+      <body className={fontsClassName}>
         <Providers>{children}</Providers>
       </body>
     </html>
