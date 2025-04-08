@@ -9,6 +9,7 @@ Modern monorepo using pnpm, Turborepo, and Changesets.
 - 🚢 [Changesets](https://github.com/changesets/changesets) - Versioning and publishing
 - 🧹 [Husky](https://typicode.github.io/husky/) - Git hooks
 - 📝 [commitlint](https://commitlint.js.org/) - Enforce conventional commits
+- 🛡️ [ESLint](https://eslint.org/) - Code linting with shared configurations
 - 🔄 [TypeScript](https://www.typescriptlang.org/) - Shared TypeScript configurations
 - 🎨 [Prettier](https://prettier.io/) - Code formatting with shared configurations
 
@@ -24,6 +25,7 @@ monorepo-starter/
 ├── apps/                 # Application packages
 ├── packages/             # Shared packages, libraries, and utilities
 │   ├── typescript-config/ # Shared TypeScript configurations
+│   ├── eslint-config/    # Shared ESLint configurations
 │   └── prettier-config/  # Shared Prettier configurations
 ├── .changeset/          # Changeset files
 ├── package.json         # Root package.json
