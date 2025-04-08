@@ -16,4 +16,5 @@ export default {
   importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
   importOrderTypeScriptVersion: '5.0.0',
   tailwindFunctions: ['cva', 'cx', 'cn'],
+  tailwindStylesheet: '../ui/src/styles/globals.css',
 };
