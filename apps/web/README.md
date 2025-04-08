@@ -21,7 +21,7 @@ src/
 │   └── svgs/                # SVG icon components
 ├── configs/                 # Configuration files for the application
 ├── lib/                     # Utility functions and shared logic
-│   ├── actions/             # Action handlers
+│   ├── actions/             # Handlers for executing operations (e.g., RPC calls)
 │   ├── errors/              # Error handling utilities
 │   ├── hooks/               # Custom React hooks
 │   ├── states/              # State management
@@ -29,7 +29,8 @@ src/
 ├── locales/                 # Internationalization files
 ├── server/                  # Server-side code
 │   ├── routes/              # API route handlers
-│   └── schemas/             # Data validation schemas
+│   └── schemas/             # ORM data model type definitions
+├── styles/                  # CSS and style definitions
 └── types/                   # TypeScript type declarations and definitions
 ```
 
