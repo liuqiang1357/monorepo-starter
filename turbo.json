@@ -29,7 +29,7 @@
     "test": {
       "dependsOn": ["^build"]
     },
-    "ui-add": {
+    "add-ui": {
       "cache": false,
       "interactive": true
     }

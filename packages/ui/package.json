@@ -11,11 +11,11 @@
     "./hooks/*": "./src/hooks/*.ts"
   },
   "scripts": {
+    "add-ui": "pnpm dlx shadcn@latest add && prettier src --write --list-different",
     "check-types": "tsc",
     "format": "prettier --write . --ignore-path ../../.gitignore",
     "lint": "eslint --max-warnings 0 .",
-    "lint-staged": "lint-staged",
-    "ui-add": "pnpm dlx shadcn@latest add && prettier src --write --list-different"
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",

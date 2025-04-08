@@ -57,7 +57,7 @@ pnpm check-types # Type checking
 pnpm format      # Format code
 
 # UI Components
-pnpm ui-add  # Add new shadcn UI components to the UI library
+pnpm add-ui  # Add new shadcn UI components to the UI library
 ```
 
 ## Code Quality
