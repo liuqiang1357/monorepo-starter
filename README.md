@@ -55,6 +55,9 @@ pnpm lint        # Run linting
 pnpm lint-staged # Run staged files linting
 pnpm check-types # Type checking
 pnpm format      # Format code
+
+# UI Components
+pnpm ui-add  # Add new shadcn UI components to the UI library
 ```
 
 ## Code Quality
