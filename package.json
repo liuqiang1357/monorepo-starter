@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "add-ui": "turbo run add-ui",
     "build": "turbo run build",
     "check-types": "turbo run check-types",
     "dev": "turbo run dev",
@@ -12,8 +13,7 @@
     "prepare": "husky",
     "publish-packages": "turbo run build lint test && changeset version && changeset publish",
     "start": "turbo run start",
-    "test": "turbo run test",
-    "add-ui": "turbo run add-ui"
+    "test": "turbo run test"
   },
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
