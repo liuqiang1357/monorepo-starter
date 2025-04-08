@@ -28,6 +28,18 @@ export default tseslint.config({
     reportUnusedDisableDirectives: 'error',
   },
   rules: {
+    eqeqeq: ['error', 'always', { null: 'never' }],
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
+
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+    ],
+    '@typescript-eslint/strict-boolean-expressions': [
+      'error',
+      { allowString: false, allowNumber: false, allowNullableObject: false },
+    ],
+
     'check-file/filename-naming-convention': ['error', { '**/*.{js,jsx,ts,tsx}': '[0-9a-z-.]+' }],
   },
 });
