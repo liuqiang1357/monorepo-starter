@@ -23,12 +23,23 @@ Modern monorepo using pnpm, Turborepo, and Changesets.
 ```bash
 monorepo-starter/
 ├── apps/                 # Application packages
+│   └── web/              # Next.js web application
 ├── packages/             # Shared packages, libraries, and utilities
 │   ├── typescript-config/ # Shared TypeScript configurations
 │   ├── eslint-config/    # Shared ESLint configurations
-│   └── prettier-config/  # Shared Prettier configurations
+│   ├── prettier-config/  # Shared Prettier configurations
+│   └── ui/               # Shared UI component library
 ├── .changeset/          # Changeset files
+├── .husky/              # Git hooks configuration
+├── .vscode/             # VS Code settings
+├── .turbo/              # Turborepo cache
+├── LICENSE              # License file
+├── .gitignore           # Git ignore file
+├── .node-version        # Node.js version
+├── .npmrc               # npm configuration
+├── commitlint.config.js # Commitlint configuration
 ├── package.json         # Root package.json
+├── pnpm-lock.yaml       # pnpm lock file
 ├── pnpm-workspace.yaml  # pnpm workspace configuration
 └── turbo.json           # Turborepo configuration
 ```
