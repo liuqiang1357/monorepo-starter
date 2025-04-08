@@ -1,6 +1,6 @@
 # Monorepo Starter
 
-Modern monorepo using pnpm, Turborepo, and Changesets.
+Modern monorepo starter template with pnpm, Turborepo, and Next.js for building scalable web applications.
 
 ## Features
 
