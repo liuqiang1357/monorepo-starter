@@ -12,7 +12,9 @@
   },
   "scripts": {
     "add-ui": "pnpm dlx shadcn@latest add && prettier src --write --list-different",
-    "check-types": "tsc",
+    "build": "tsc",
+    "check-types": "tsc --noEmit --emitDeclarationOnly false",
+    "dev": "tsc --watch",
     "format": "prettier --write . --ignore-path ../../.gitignore",
     "lint": "eslint --max-warnings 0 .",
     "lint-staged": "lint-staged"
@@ -31,6 +33,7 @@
     "@repo/prettier-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.3",
+    "@types/node": "^20.17.30",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
     "eslint": "^9.24.0",
