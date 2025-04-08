@@ -6,9 +6,6 @@
   "exports": {
     ".": "./src/index.js"
   },
-  "files": [
-    "src"
-  ],
   "scripts": {
     "check-types": "tsc",
     "format": "prettier --write . --ignore-path ../../.gitignore"

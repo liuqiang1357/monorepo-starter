@@ -8,9 +8,6 @@
     "./nextjs": "./src/nextjs.js",
     "./react": "./src/react.js"
   },
-  "files": [
-    "src"
-  ],
   "scripts": {
     "check-types": "tsc",
     "format": "prettier --write . --ignore-path ../../.gitignore",
