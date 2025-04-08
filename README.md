@@ -30,6 +30,7 @@ monorepo-starter/
 │   ├── prettier-config/  # Shared Prettier configurations
 │   └── ui/               # Shared UI component library
 ├── .changeset/          # Changeset files
+├── .github/             # GitHub related files (workflows, templates, etc.)
 ├── .husky/              # Git hooks configuration
 ├── .vscode/             # VS Code settings
 ├── .turbo/              # Turborepo cache
