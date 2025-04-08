@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
     "./postcss.config": "./postcss.config.js",
     "./globals.css": "./src/globals.css",
+    "./utils": "./src/utils.ts",
     "./*": "./src/*.tsx"
   },
   "scripts": {
@@ -17,6 +17,7 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.475.0",
