@@ -71,6 +71,17 @@ pnpm build
 pnpm start
 ```
 
+## Deployment
+
+### Cloudflare Pages
+
+This application is deployed to Cloudflare Pages using GitHub Actions. The workflow is configured in `.github/workflows/deploy-web.yml`.
+
+Required GitHub Secrets:
+
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN`
+
 ## Contributing
 
 Please follow the project's coding standards:
