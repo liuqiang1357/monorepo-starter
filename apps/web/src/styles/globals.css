@@ -1,1 +1,7 @@
 @import '@repo/ui/globals.css';
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+}
