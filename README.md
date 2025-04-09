@@ -23,7 +23,8 @@ Modern monorepo starter template with pnpm, Turborepo, and Next.js for building 
 ```bash
 monorepo-starter/
 ├── apps/                 # Application packages
-│   └── web/              # Next.js web application
+│   ├── web/              # Next.js web application
+│   └── storybook/        # Storybook UI component documentation and playground
 ├── packages/             # Shared packages, libraries, and utilities
 │   ├── typescript-config/ # Shared TypeScript configurations
 │   ├── eslint-config/    # Shared ESLint configurations
@@ -71,7 +72,11 @@ pnpm check-types # Type checking
 pnpm format      # Format code
 
 # UI Components
-pnpm add-ui  # Add new shadcn UI components to the UI library
+pnpm add-ui      # Add new shadcn UI components to the UI library
+
+# Storybook
+pnpm storybook   # Start Storybook development server
+pnpm build-storybook # Build Storybook for production
 ```
 
 ## Code Quality
