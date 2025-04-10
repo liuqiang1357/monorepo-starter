@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface ColorBlockProps {
   name: string;
   variable: string;
@@ -231,33 +229,12 @@ export function ThemeShowcase() {
     { name: 'Radius XL', variable: 'radius-xl', className: 'rounded-xl' },
   ];
 
-  const ThemeToggle = () => {
-    const [theme, setTheme] = React.useState<'light' | 'dark'>('light');
-
-    const toggleTheme = () => {
-      const newTheme = theme === 'light' ? 'dark' : 'light';
-      setTheme(newTheme);
-      document.documentElement.classList.toggle('dark');
-    };
-
-    return (
-      <button
-        onClick={toggleTheme}
-        className="mb-6 rounded-md bg-primary px-4 py-2 text-primary-foreground"
-      >
-        Toggle {theme === 'light' ? 'Dark' : 'Light'} Mode
-      </button>
-    );
-  };
-
   return (
     <div className="mx-auto max-w-6xl p-6">
       <h1 className="mb-2 text-3xl font-bold">Theme Showcase</h1>
       <p className="mb-6 text-muted-foreground">
         Visual representation of all theme variables in the design system.
       </p>
-
-      <ThemeToggle />
 
       <ColorPairSection title="Background & Foreground Pairs" pairs={backgroundForegroundPairs} />
       <ColorSection title="Other UI Colors" colors={singleColors} />
