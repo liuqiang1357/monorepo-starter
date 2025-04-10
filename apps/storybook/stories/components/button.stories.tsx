@@ -11,11 +11,11 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+      options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link', 'unstyled'],
     },
     size: {
       control: 'select',
-      options: ['default', 'sm', 'lg', 'icon'],
+      options: ['default', 'sm', 'lg', 'icon', 'unsized'],
     },
     asChild: {
       control: 'boolean',
@@ -72,6 +72,13 @@ export const Link: Story = {
   },
 };
 
+export const Unstyled: Story = {
+  args: {
+    children: 'Unstyled',
+    variant: 'unstyled',
+  },
+};
+
 export const Small: Story = {
   args: {
     children: 'Small',
@@ -90,5 +97,12 @@ export const Disabled: Story = {
   args: {
     children: 'Disabled',
     disabled: true,
+  },
+};
+
+export const Unsized: Story = {
+  args: {
+    children: 'Unsized',
+    size: 'unsized',
   },
 };
