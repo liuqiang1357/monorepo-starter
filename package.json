@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "add-ui": "turbo run add-ui",
+    "add-ui": "turbo run add-ui --",
     "build": "turbo run build",
     "check-types": "turbo run check-types",
     "dev": "turbo run dev",

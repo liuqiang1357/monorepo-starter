@@ -11,7 +11,8 @@
     "./hooks/*": "./src/hooks/*.ts"
   },
   "scripts": {
-    "add-ui": "pnpm dlx shadcn@latest add && prettier src --write --list-different",
+    "add-ui": "pnpm dlx shadcn@latest add",
+    "postadd-ui": "pnpm run format",
     "build": "tsc",
     "check-types": "tsc --noEmit --emitDeclarationOnly false",
     "dev": "tsc --watch",
