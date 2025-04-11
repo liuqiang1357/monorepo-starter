@@ -1,4 +1,4 @@
-export const appName = 'MonoRepo Starter';
+export const appName = 'Monorepo Starter';
 
 export const appDescription =
-  'Modern monorepo starter template with pnpm, Turborepo, and Next.js for building scalable web applications.';
+  "This is the web frontend application for the monorepo project. It's built with Next.js and provides a modern, responsive user interface.";
