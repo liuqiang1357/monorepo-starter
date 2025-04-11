@@ -53,8 +53,6 @@ monorepo-starter/
 git clone https://github.com/yourusername/monorepo-starter.git
 cd monorepo-starter
 pnpm install
-
-# Common commands
 ```
 
 ## Common Commands
