@@ -7,8 +7,8 @@ interface ColorBlockProps {
 const ColorBlock = ({ name, className }: ColorBlockProps) => {
   return (
     <div className="flex flex-col items-center">
-      <div className={`mb-2 h-16 w-16 rounded-md shadow-md ${className}`} />
-      <p className="text-sm font-medium">{name}</p>
+      <div className={`h-16 w-16 rounded-md shadow-md ${className}`} />
+      <p className="mt-2 text-sm font-medium">{name}</p>
       <p className="text-xs opacity-70">{className}</p>
     </div>
   );
@@ -23,11 +23,11 @@ const ColorPair = ({ background, foreground }: ColorPairProps) => {
   return (
     <div className="flex flex-col">
       <div
-        className={`mb-2 flex h-16 w-full items-center justify-center rounded-md shadow-md ${background.className}`}
+        className={`flex h-16 w-full items-center justify-center rounded-md shadow-md ${background.className}`}
       >
         <span className={`font-medium ${foreground.className}`}>Text Sample</span>
       </div>
-      <div className="flex flex-col space-y-1">
+      <div className="mt-2 flex flex-col space-y-1">
         <p className="text-sm font-medium">
           {background.name} / {foreground.name}
         </p>
@@ -38,36 +38,38 @@ const ColorPair = ({ background, foreground }: ColorPairProps) => {
   );
 };
 
-interface ColorSectionProps {
+interface ColorPairSectionProps {
   title: string;
-  colors: { name: string; variable: string; className: string }[];
+  pairs: ColorPairProps[];
+  className?: string;
 }
 
-const ColorSection = ({ title, colors }: ColorSectionProps) => {
+const ColorPairSection = ({ title, pairs, className }: ColorPairSectionProps) => {
   return (
-    <div className="mb-8">
-      <h3 className="mb-4 text-lg font-semibold">{title}</h3>
-      <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
-        {colors.map(color => (
-          <ColorBlock key={color.variable} {...color} />
+    <div className={className ?? ''}>
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {pairs.map((pair, index) => (
+          <ColorPair key={index} {...pair} />
         ))}
       </div>
     </div>
   );
 };
 
-interface ColorPairSectionProps {
+interface ColorSectionProps {
   title: string;
-  pairs: ColorPairProps[];
+  colors: { name: string; variable: string; className: string }[];
+  className?: string;
 }
 
-const ColorPairSection = ({ title, pairs }: ColorPairSectionProps) => {
+const ColorSection = ({ title, colors, className }: ColorSectionProps) => {
   return (
-    <div className="mb-8">
-      <h3 className="mb-4 text-lg font-semibold">{title}</h3>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {pairs.map((pair, index) => (
-          <ColorPair key={index} {...pair} />
+    <div className={className ?? ''}>
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <div className="mt-4 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
+        {colors.map(color => (
+          <ColorBlock key={color.variable} {...color} />
         ))}
       </div>
     </div>
@@ -83,8 +85,8 @@ interface BorderRadiusBlockProps {
 const BorderRadiusBlock = ({ name, className }: BorderRadiusBlockProps) => {
   return (
     <div className="flex flex-col items-center">
-      <div className={`mb-2 h-16 w-16 border-2 border-border bg-primary ${className}`} />
-      <p className="text-sm font-medium">{name}</p>
+      <div className={`h-16 w-16 border-2 border-border bg-primary ${className}`} />
+      <p className="mt-2 text-sm font-medium">{name}</p>
       <p className="text-xs opacity-70">{className}</p>
     </div>
   );
@@ -93,13 +95,14 @@ const BorderRadiusBlock = ({ name, className }: BorderRadiusBlockProps) => {
 interface BorderRadiusSectionProps {
   title: string;
   radii: BorderRadiusBlockProps[];
+  className?: string;
 }
 
-const BorderRadiusSection = ({ title, radii }: BorderRadiusSectionProps) => {
+const BorderRadiusSection = ({ title, radii, className }: BorderRadiusSectionProps) => {
   return (
-    <div className="mb-8">
-      <h3 className="mb-4 text-lg font-semibold">{title}</h3>
-      <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
+    <div className={className ?? ''}>
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <div className="mt-4 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
         {radii.map(radius => (
           <BorderRadiusBlock key={radius.variable} {...radius} />
         ))}
@@ -231,15 +234,34 @@ export function ThemeShowcase() {
 
   return (
     <div className="mx-auto max-w-6xl p-6">
-      <h1 className="mb-2 text-3xl font-bold">Theme Showcase</h1>
-      <p className="mb-6 text-muted-foreground">
+      <h1 className="text-3xl font-bold">Theme Showcase</h1>
+      <p className="mt-4 text-muted-foreground">
         Visual representation of all theme variables in the design system.
       </p>
 
-      <ColorPairSection title="Background & Foreground Pairs" pairs={backgroundForegroundPairs} />
-      <ColorSection title="Other UI Colors" colors={singleColors} />
-      <ColorSection title="Chart Colors" colors={chartColors} />
-      <BorderRadiusSection title="Border Radius" radii={borderRadii} />
+      <ColorPairSection
+        title="Background & Foreground Pairs"
+        pairs={backgroundForegroundPairs}
+        className="mt-8"
+      />
+      <ColorSection title="Other UI Colors" colors={singleColors} className="mt-8" />
+      <ColorSection title="Chart Colors" colors={chartColors} className="mt-8" />
+      <BorderRadiusSection title="Border Radius" radii={borderRadii} className="mt-8" />
+
+      <div className="mt-12 border-t pt-8 text-center">
+        <p className="text-muted-foreground">
+          Visit{' '}
+          <a
+            href="https://tweakcn.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary hover:underline"
+          >
+            tweakcn.com
+          </a>{' '}
+          for more examples
+        </p>
+      </div>
     </div>
   );
 }
