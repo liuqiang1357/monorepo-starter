@@ -1,6 +1,6 @@
 # Monorepo Starter
 
-Modern monorepo starter template with pnpm, Turborepo, and Next.js for building scalable web applications.
+A modern monorepo starter template using pnpm workspaces, Turborepo, and Changesets.
 
 ## Features
 
@@ -73,10 +73,6 @@ pnpm format      # Format code
 
 # UI Components
 pnpm add-ui -- [component...]  # Add shadcn UI components to the UI library
-
-# Storybook
-pnpm storybook   # Start Storybook development server
-pnpm build-storybook # Build Storybook for production
 ```
 
 ## Code Quality
