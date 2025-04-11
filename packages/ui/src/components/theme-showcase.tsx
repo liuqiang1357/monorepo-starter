@@ -119,22 +119,6 @@ export function ThemeShowcase() {
       foreground: { name: 'Foreground', variable: 'foreground', className: 'text-foreground' },
     },
     {
-      background: { name: 'Primary', variable: 'primary', className: 'bg-primary' },
-      foreground: {
-        name: 'Primary Foreground',
-        variable: 'primary-foreground',
-        className: 'text-primary-foreground',
-      },
-    },
-    {
-      background: { name: 'Secondary', variable: 'secondary', className: 'bg-secondary' },
-      foreground: {
-        name: 'Secondary Foreground',
-        variable: 'secondary-foreground',
-        className: 'text-secondary-foreground',
-      },
-    },
-    {
       background: { name: 'Card', variable: 'card', className: 'bg-card' },
       foreground: {
         name: 'Card Foreground',
@@ -151,11 +135,19 @@ export function ThemeShowcase() {
       },
     },
     {
-      background: { name: 'Muted', variable: 'muted', className: 'bg-muted' },
+      background: { name: 'Primary', variable: 'primary', className: 'bg-primary' },
       foreground: {
-        name: 'Muted Foreground',
-        variable: 'muted-foreground',
-        className: 'text-muted-foreground',
+        name: 'Primary Foreground',
+        variable: 'primary-foreground',
+        className: 'text-primary-foreground',
+      },
+    },
+    {
+      background: { name: 'Secondary', variable: 'secondary', className: 'bg-secondary' },
+      foreground: {
+        name: 'Secondary Foreground',
+        variable: 'secondary-foreground',
+        className: 'text-secondary-foreground',
       },
     },
     {
@@ -164,6 +156,14 @@ export function ThemeShowcase() {
         name: 'Accent Foreground',
         variable: 'accent-foreground',
         className: 'text-accent-foreground',
+      },
+    },
+    {
+      background: { name: 'Muted', variable: 'muted', className: 'bg-muted' },
+      foreground: {
+        name: 'Muted Foreground',
+        variable: 'muted-foreground',
+        className: 'text-muted-foreground',
       },
     },
     {
