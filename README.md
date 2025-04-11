@@ -72,7 +72,7 @@ pnpm check-types # Type checking
 pnpm format      # Format code
 
 # UI Components
-pnpm add-ui [component...]  # Add shadcn UI components to the UI library
+pnpm add-ui -- [component...]  # Add shadcn UI components to the UI library
 
 # Storybook
 pnpm storybook   # Start Storybook development server
