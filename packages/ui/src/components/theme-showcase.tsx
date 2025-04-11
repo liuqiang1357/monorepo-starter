@@ -174,6 +174,10 @@ export function ThemeShowcase() {
         className: 'text-destructive-foreground',
       },
     },
+  ];
+
+  // Sidebar color pairs
+  const sidebarPairs = [
     {
       background: { name: 'Sidebar', variable: 'sidebar', className: 'bg-sidebar' },
       foreground: {
@@ -213,6 +217,10 @@ export function ThemeShowcase() {
     { name: 'Border', variable: 'border', className: 'bg-border' },
     { name: 'Input', variable: 'input', className: 'bg-input' },
     { name: 'Ring', variable: 'ring', className: 'bg-ring' },
+  ];
+
+  // Sidebar single colors
+  const sidebarSingleColors = [
     { name: 'Sidebar Border', variable: 'sidebar-border', className: 'bg-sidebar-border' },
     { name: 'Sidebar Ring', variable: 'sidebar-ring', className: 'bg-sidebar-ring' },
   ];
@@ -247,6 +255,16 @@ export function ThemeShowcase() {
       <ColorSection title="Other UI Colors" colors={singleColors} className="mt-8" />
       <ColorSection title="Chart Colors" colors={chartColors} className="mt-8" />
       <BorderRadiusSection title="Border Radius" radii={borderRadii} className="mt-8" />
+
+      {/* Sidebar specific section */}
+      <div className="mt-12 border-t pt-8">
+        <ColorPairSection title="Sidebar Color Pairs" pairs={sidebarPairs} className="mt-0" />
+        <ColorSection
+          title="Sidebar Utility Colors"
+          colors={sidebarSingleColors}
+          className="mt-8"
+        />
+      </div>
 
       <div className="mt-12 border-t pt-8 text-center">
         <p className="text-muted-foreground">
