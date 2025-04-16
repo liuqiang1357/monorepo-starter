@@ -10,7 +10,6 @@ export default tseslint.config({
     gitignore(),
     eslint.configs.recommended,
     tseslint.configs.recommendedTypeChecked,
-    tseslint.configs.stylisticTypeChecked,
     turbo.configs['flat/recommended'],
     prettier,
   ],
