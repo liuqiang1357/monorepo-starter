@@ -1,10 +1,6 @@
-interface ColorBlockProps {
-  name: string;
-  variable: string;
-  className: string;
-}
+'use client';
 
-const ColorBlock = ({ name, className }: ColorBlockProps) => {
+function ColorBlock({ name, className }: { name: string; className: string }) {
   return (
     <div className="flex flex-col items-center">
       <div className={`h-16 w-16 rounded-md shadow-md ${className}`} />
@@ -12,14 +8,15 @@ const ColorBlock = ({ name, className }: ColorBlockProps) => {
       <p className="text-xs opacity-70">{className}</p>
     </div>
   );
-};
-
-interface ColorPairProps {
-  background: { name: string; variable: string; className: string };
-  foreground: { name: string; variable: string; className: string };
 }
 
-const ColorPair = ({ background, foreground }: ColorPairProps) => {
+function ColorPair({
+  background,
+  foreground,
+}: {
+  background: { name: string; className: string };
+  foreground: { name: string; className: string };
+}) {
   return (
     <div className="flex flex-col">
       <div
@@ -36,17 +33,18 @@ const ColorPair = ({ background, foreground }: ColorPairProps) => {
       </div>
     </div>
   );
-};
-
-interface ColorPairSectionProps {
-  title: string;
-  pairs: ColorPairProps[];
-  className?: string;
 }
 
-const ColorPairSection = ({ title, pairs, className }: ColorPairSectionProps) => {
+function ColorPairSection({
+  title,
+  pairs,
+  ...props
+}: React.ComponentProps<'div'> & {
+  title: string;
+  pairs: React.ComponentProps<typeof ColorPair>[];
+}) {
   return (
-    <div className={className ?? ''}>
+    <div {...props}>
       <h3 className="text-lg font-semibold">{title}</h3>
       <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {pairs.map((pair, index) => (
@@ -55,34 +53,29 @@ const ColorPairSection = ({ title, pairs, className }: ColorPairSectionProps) =>
       </div>
     </div>
   );
-};
-
-interface ColorSectionProps {
-  title: string;
-  colors: { name: string; variable: string; className: string }[];
-  className?: string;
 }
 
-const ColorSection = ({ title, colors, className }: ColorSectionProps) => {
+function ColorSection({
+  title,
+  colors,
+  ...props
+}: React.ComponentProps<'div'> & {
+  title: string;
+  colors: { name: string; className: string }[];
+}) {
   return (
-    <div className={className ?? ''}>
+    <div {...props}>
       <h3 className="text-lg font-semibold">{title}</h3>
       <div className="mt-4 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
         {colors.map(color => (
-          <ColorBlock key={color.variable} {...color} />
+          <ColorBlock key={color.name} {...color} />
         ))}
       </div>
     </div>
   );
-};
-
-interface BorderRadiusBlockProps {
-  name: string;
-  variable: string;
-  className: string;
 }
 
-const BorderRadiusBlock = ({ name, className }: BorderRadiusBlockProps) => {
+function BorderRadiusBlock({ name, className }: { name: string; className: string }) {
   return (
     <div className="flex flex-col items-center">
       <div className={`h-16 w-16 border-2 border-border bg-primary ${className}`} />
@@ -90,123 +83,82 @@ const BorderRadiusBlock = ({ name, className }: BorderRadiusBlockProps) => {
       <p className="text-xs opacity-70">{className}</p>
     </div>
   );
-};
-
-interface BorderRadiusSectionProps {
-  title: string;
-  radii: BorderRadiusBlockProps[];
-  className?: string;
 }
 
-const BorderRadiusSection = ({ title, radii, className }: BorderRadiusSectionProps) => {
+function BorderRadiusSection({
+  title,
+  radii,
+  ...props
+}: React.ComponentProps<'div'> & {
+  title: string;
+  radii: React.ComponentProps<typeof BorderRadiusBlock>[];
+}) {
   return (
-    <div className={className ?? ''}>
+    <div {...props}>
       <h3 className="text-lg font-semibold">{title}</h3>
       <div className="mt-4 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
         {radii.map(radius => (
-          <BorderRadiusBlock key={radius.variable} {...radius} />
+          <BorderRadiusBlock key={radius.name} {...radius} />
         ))}
       </div>
     </div>
   );
-};
+}
 
 export function ThemeShowcase() {
   // Color pairs with background and foreground classNames
   const backgroundForegroundPairs = [
     {
-      background: { name: 'Background', variable: 'background', className: 'bg-background' },
-      foreground: { name: 'Foreground', variable: 'foreground', className: 'text-foreground' },
+      background: { name: 'Background', className: 'bg-background' },
+      foreground: { name: 'Foreground', className: 'text-foreground' },
     },
     {
-      background: { name: 'Card', variable: 'card', className: 'bg-card' },
-      foreground: {
-        name: 'Card Foreground',
-        variable: 'card-foreground',
-        className: 'text-card-foreground',
-      },
+      background: { name: 'Card', className: 'bg-card' },
+      foreground: { name: 'Card Foreground', className: 'text-card-foreground' },
     },
     {
-      background: { name: 'Popover', variable: 'popover', className: 'bg-popover' },
-      foreground: {
-        name: 'Popover Foreground',
-        variable: 'popover-foreground',
-        className: 'text-popover-foreground',
-      },
+      background: { name: 'Popover', className: 'bg-popover' },
+      foreground: { name: 'Popover Foreground', className: 'text-popover-foreground' },
     },
     {
-      background: { name: 'Primary', variable: 'primary', className: 'bg-primary' },
-      foreground: {
-        name: 'Primary Foreground',
-        variable: 'primary-foreground',
-        className: 'text-primary-foreground',
-      },
+      background: { name: 'Primary', className: 'bg-primary' },
+      foreground: { name: 'Primary Foreground', className: 'text-primary-foreground' },
     },
     {
-      background: { name: 'Secondary', variable: 'secondary', className: 'bg-secondary' },
-      foreground: {
-        name: 'Secondary Foreground',
-        variable: 'secondary-foreground',
-        className: 'text-secondary-foreground',
-      },
+      background: { name: 'Secondary', className: 'bg-secondary' },
+      foreground: { name: 'Secondary Foreground', className: 'text-secondary-foreground' },
     },
     {
-      background: { name: 'Accent', variable: 'accent', className: 'bg-accent' },
-      foreground: {
-        name: 'Accent Foreground',
-        variable: 'accent-foreground',
-        className: 'text-accent-foreground',
-      },
+      background: { name: 'Accent', className: 'bg-accent' },
+      foreground: { name: 'Accent Foreground', className: 'text-accent-foreground' },
     },
     {
-      background: { name: 'Muted', variable: 'muted', className: 'bg-muted' },
-      foreground: {
-        name: 'Muted Foreground',
-        variable: 'muted-foreground',
-        className: 'text-muted-foreground',
-      },
+      background: { name: 'Muted', className: 'bg-muted' },
+      foreground: { name: 'Muted Foreground', className: 'text-muted-foreground' },
     },
     {
-      background: { name: 'Destructive', variable: 'destructive', className: 'bg-destructive' },
-      foreground: {
-        name: 'Destructive Foreground',
-        variable: 'destructive-foreground',
-        className: 'text-destructive-foreground',
-      },
+      background: { name: 'Destructive', className: 'bg-destructive' },
+      foreground: { name: 'Destructive Foreground', className: 'text-destructive-foreground' },
     },
   ];
 
   // Sidebar color pairs
   const sidebarPairs = [
     {
-      background: { name: 'Sidebar', variable: 'sidebar', className: 'bg-sidebar' },
-      foreground: {
-        name: 'Sidebar Foreground',
-        variable: 'sidebar-foreground',
-        className: 'text-sidebar-foreground',
-      },
+      background: { name: 'Sidebar', className: 'bg-sidebar' },
+      foreground: { name: 'Sidebar Foreground', className: 'text-sidebar-foreground' },
     },
     {
-      background: {
-        name: 'Sidebar Primary',
-        variable: 'sidebar-primary',
-        className: 'bg-sidebar-primary',
-      },
+      background: { name: 'Sidebar Primary', className: 'bg-sidebar-primary' },
       foreground: {
         name: 'Sidebar Primary Foreground',
-        variable: 'sidebar-primary-foreground',
         className: 'text-sidebar-primary-foreground',
       },
     },
     {
-      background: {
-        name: 'Sidebar Accent',
-        variable: 'sidebar-accent',
-        className: 'bg-sidebar-accent',
-      },
+      background: { name: 'Sidebar Accent', className: 'bg-sidebar-accent' },
       foreground: {
         name: 'Sidebar Accent Foreground',
-        variable: 'sidebar-accent-foreground',
         className: 'text-sidebar-accent-foreground',
       },
     },
@@ -214,30 +166,30 @@ export function ThemeShowcase() {
 
   // Single colors with className
   const singleColors = [
-    { name: 'Border', variable: 'border', className: 'bg-border' },
-    { name: 'Input', variable: 'input', className: 'bg-input' },
-    { name: 'Ring', variable: 'ring', className: 'bg-ring' },
+    { name: 'Border', className: 'bg-border' },
+    { name: 'Input', className: 'bg-input' },
+    { name: 'Ring', className: 'bg-ring' },
   ];
 
   // Sidebar single colors
   const sidebarSingleColors = [
-    { name: 'Sidebar Border', variable: 'sidebar-border', className: 'bg-sidebar-border' },
-    { name: 'Sidebar Ring', variable: 'sidebar-ring', className: 'bg-sidebar-ring' },
+    { name: 'Sidebar Border', className: 'bg-sidebar-border' },
+    { name: 'Sidebar Ring', className: 'bg-sidebar-ring' },
   ];
 
   const chartColors = [
-    { name: 'Chart 1', variable: 'chart-1', className: 'bg-chart-1' },
-    { name: 'Chart 2', variable: 'chart-2', className: 'bg-chart-2' },
-    { name: 'Chart 3', variable: 'chart-3', className: 'bg-chart-3' },
-    { name: 'Chart 4', variable: 'chart-4', className: 'bg-chart-4' },
-    { name: 'Chart 5', variable: 'chart-5', className: 'bg-chart-5' },
+    { name: 'Chart 1', className: 'bg-chart-1' },
+    { name: 'Chart 2', className: 'bg-chart-2' },
+    { name: 'Chart 3', className: 'bg-chart-3' },
+    { name: 'Chart 4', className: 'bg-chart-4' },
+    { name: 'Chart 5', className: 'bg-chart-5' },
   ];
 
   const borderRadii = [
-    { name: 'Radius SM', variable: 'radius-sm', className: 'rounded-sm' },
-    { name: 'Radius MD', variable: 'radius-md', className: 'rounded-md' },
-    { name: 'Radius LG', variable: 'radius-lg', className: 'rounded-lg' },
-    { name: 'Radius XL', variable: 'radius-xl', className: 'rounded-xl' },
+    { name: 'Radius SM', className: 'rounded-sm' },
+    { name: 'Radius MD', className: 'rounded-md' },
+    { name: 'Radius LG', className: 'rounded-lg' },
+    { name: 'Radius XL', className: 'rounded-xl' },
   ];
 
   return (
