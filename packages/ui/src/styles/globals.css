@@ -117,22 +117,16 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 @theme {
   --font-sans: 'Manrope Variable', sans-serif;
   --font-mono: 'Roboto Mono Variable', monospace;
 }
 
 @layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
   body {
-    @apply font-sans antialiased;
+    @apply bg-background font-sans text-foreground antialiased;
   }
 }
