@@ -1,1 +1,6 @@
-export { default } from '@repo/prettier-config';
+import prettierConfig from '@repo/prettier-config';
+
+export default {
+  ...prettierConfig,
+  tailwindStylesheet: './globals.css',
+};
