@@ -8,7 +8,7 @@ import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 
 const channel = addons.getChannel();
 
-const MyDocsContainer = (props: ComponentProps<typeof DocsContainer>) => {
+function MyDocsContainer(props: ComponentProps<typeof DocsContainer>) {
   const [isDark, setDark] = useState(localStorage.getItem('theme') === 'dark');
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const MyDocsContainer = (props: ComponentProps<typeof DocsContainer>) => {
   }, [isDark, setDark]);
 
   return <DocsContainer {...props} theme={isDark ? themes.dark : themes.light} />;
-};
+}
 
 const preview: Preview = {
   parameters: {
