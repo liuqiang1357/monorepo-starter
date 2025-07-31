@@ -1,4 +1,4 @@
-import '@repo/ui/globals.css';
+import '../src/styles/globals.css';
 import { DocsContainer } from '@storybook/blocks';
 import { addons } from '@storybook/preview-api';
 import { Preview } from '@storybook/react';

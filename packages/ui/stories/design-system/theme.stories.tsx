@@ -1,4 +1,4 @@
-'use client';
+import type { Meta, StoryObj } from '@storybook/react';
 
 function ColorBlock({ name, className }: { name: string; className: string }) {
   return (
@@ -105,7 +105,7 @@ function BorderRadiusSection({
   );
 }
 
-export function ThemeShowcase() {
+function ThemeShowcase() {
   // Color pairs with background and foreground classNames
   const backgroundForegroundPairs = [
     {
@@ -235,3 +235,19 @@ export function ThemeShowcase() {
     </div>
   );
 }
+
+const meta: Meta<typeof ThemeShowcase> = {
+  title: 'Design System/Theme',
+  component: ThemeShowcase,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
+};
+
+export default meta;
+type Story = StoryObj<typeof ThemeShowcase>;
+
+export const Default: Story = {
+  args: {},
+};

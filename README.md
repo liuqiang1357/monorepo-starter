@@ -23,8 +23,7 @@ A modern monorepo starter template using pnpm workspaces, Turborepo, and Changes
 ```bash
 monorepo-starter/
 ├── apps/                 # Application packages
-│   ├── web/              # Next.js web application
-│   └── storybook/        # Storybook UI component documentation and playground
+│   └── web/              # Next.js web application
 ├── packages/             # Shared packages, libraries, and utilities
 │   ├── typescript-config/ # Shared TypeScript configurations
 │   ├── eslint-config/    # Shared ESLint configurations
@@ -60,8 +59,9 @@ pnpm install
 ```bash
 # Development
 pnpm dev         # Start development servers
-pnpm build       # Build all packages
+pnpm build       # Build all apps and packages
 pnpm test        # Run tests
+pnpm storybook   # Run storybooks
 
 # Code Quality
 pnpm lint        # Run linting

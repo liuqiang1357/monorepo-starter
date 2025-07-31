@@ -13,6 +13,7 @@
     "prepare": "husky",
     "publish-packages": "turbo run build lint test && changeset version && changeset publish",
     "start": "turbo run start",
+    "storybook": "turbo run storybook",
     "test": "turbo run test"
   },
   "devDependencies": {

@@ -17,7 +17,7 @@ src/
 ├── assets/                  # Static assets (images, fonts, etc.)
 ├── components/              # React components specific to this app
 │   ├── app/                 # Application-level components (e.g., providers)
-│   ├── home/                # Components specific to the home page
+│   ├── hello-world/         # Example component demonstrating basic patterns
 │   └── svgs/                # SVG icon components
 ├── configs/                 # Configuration files for the application
 ├── lib/                     # Utility functions and shared logic
@@ -59,6 +59,9 @@ pnpm lint
 
 # Format code
 pnpm format
+
+# Run Storybook
+pnpm storybook
 ```
 
 ### Building for Production
