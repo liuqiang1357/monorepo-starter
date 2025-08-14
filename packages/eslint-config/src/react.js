@@ -8,7 +8,6 @@ export default tseslint.config({
     react.configs.flat.recommended,
     react.configs.flat['jsx-runtime'],
     // @ts-expect-error - queryPlugin.default exists at runtime but type definition is incorrect
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     queryPlugin.default.configs['flat/recommended'],
   ],
   plugins: {

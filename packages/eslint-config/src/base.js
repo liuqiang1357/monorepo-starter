@@ -5,40 +5,44 @@ import prettier from 'eslint-plugin-prettier/recommended';
 import turbo from 'eslint-plugin-turbo';
 import tseslint from 'typescript-eslint';
 
-export default tseslint.config({
-  extends: [
-    gitignore(),
-    eslint.configs.recommended,
-    tseslint.configs.recommendedTypeChecked,
-    turbo.configs['flat/recommended'],
-    prettier,
-  ],
-  plugins: {
-    'check-file': checkFile,
-  },
-  languageOptions: {
-    parserOptions: {
-      projectService: {
-        allowDefaultProject: ['*.js'],
+export default tseslint.config(
+  {
+    extends: [
+      gitignore(),
+      eslint.configs.recommended,
+      tseslint.configs.recommendedTypeChecked,
+      turbo.configs['flat/recommended'],
+      prettier,
+    ],
+    plugins: {
+      'check-file': checkFile,
+    },
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
       },
     },
-  },
-  linterOptions: {
-    reportUnusedDisableDirectives: 'error',
-  },
-  rules: {
-    eqeqeq: ['error', 'always', { null: 'never' }],
-    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    linterOptions: {
+      reportUnusedDisableDirectives: 'error',
+    },
+    rules: {
+      eqeqeq: ['error', 'always', { null: 'never' }],
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
 
-    '@typescript-eslint/no-unused-vars': [
-      'warn',
-      { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
-    ],
-    '@typescript-eslint/strict-boolean-expressions': [
-      'error',
-      { allowString: false, allowNumber: false, allowNullableObject: false },
-    ],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/strict-boolean-expressions': [
+        'error',
+        { allowString: false, allowNumber: false, allowNullableObject: false },
+      ],
 
-    'check-file/filename-naming-convention': ['error', { '**/*.{js,jsx,ts,tsx}': '[0-9a-z-.]+' }],
+      'check-file/filename-naming-convention': ['error', { '**/*.{js,jsx,ts,tsx}': '[0-9a-z-.]+' }],
+    },
   },
-});
+  {
+    files: ['**/*.js'],
+    extends: [tseslint.configs.disableTypeChecked],
+  },
+);
