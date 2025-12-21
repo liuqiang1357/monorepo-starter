@@ -4,12 +4,10 @@
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "module": "preserve",
     "moduleResolution": "bundler",
     "noEmit": true,
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022"

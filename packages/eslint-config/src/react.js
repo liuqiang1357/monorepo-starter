@@ -1,20 +1,22 @@
-import * as queryPlugin from '@tanstack/eslint-plugin-query';
+import query from '@tanstack/eslint-plugin-query';
 import react from 'eslint-plugin-react';
 import hooks from 'eslint-plugin-react-hooks';
+import storybook from 'eslint-plugin-storybook';
 import tseslint from 'typescript-eslint';
+import base from './base.js';
 
 export default tseslint.config({
   extends: [
+    base,
     react.configs.flat.recommended,
     react.configs.flat['jsx-runtime'],
-    // @ts-expect-error - queryPlugin.default exists at runtime but type definition is incorrect
-    queryPlugin.default.configs['flat/recommended'],
+    query.configs['flat/recommended'],
+    storybook.configs['flat/recommended'],
   ],
   plugins: {
     'react-hooks': hooks,
   },
   rules: {
-    ...react.configs['jsx-runtime'].rules,
     ...hooks.configs.recommended.rules,
 
     'react/prop-types': 'off',

@@ -1,18 +1,20 @@
-declare module 'eslint-plugin-check-file' {
-  const plugin: Record<string, unknown>;
-  export default plugin;
+declare module '@next/eslint-plugin-next' {
+  import type { Linter } from 'eslint';
+
+  export const flatConfig: {
+    recommended: Linter.Config;
+    coreWebVitals: Linter.Config;
+  };
 }
 
-declare module '@next/eslint-plugin-next' {
-  import type { TSESLint } from '@typescript-eslint/utils';
+declare module '@tanstack/eslint-plugin-query' {
+  import type { Linter } from 'eslint';
 
-  type ESLintRules = Record<string, TSESLint.Linter.RuleEntry>;
-
-  const plugin: TSESLint.Linter.Plugin & {
+  const plugin: {
     configs: {
-      recommended: { rules: ESLintRules };
-      'core-web-vitals': { rules: ESLintRules };
+      'flat/recommended': Linter.Config;
     };
   };
+
   export default plugin;
 }

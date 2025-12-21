@@ -1,41 +1,52 @@
 import '../src/styles/globals.css';
-import { DocsContainer } from '@storybook/blocks';
-import { addons } from '@storybook/preview-api';
-import { Preview } from '@storybook/react';
-import { themes } from '@storybook/theming';
-import { ComponentProps, useEffect, useState } from 'react';
-import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
+import { DocsContainer, type DocsContainerProps } from '@storybook/addon-docs/blocks';
+import { withThemeByClassName } from '@storybook/addon-themes';
+import type { Preview } from '@storybook/react-vite';
+import { themes as sbThemes } from 'storybook/theming';
 
-const channel = addons.getChannel();
-
-function MyDocsContainer(props: ComponentProps<typeof DocsContainer>) {
-  const [isDark, setDark] = useState(localStorage.getItem('theme') === 'dark');
-
-  useEffect(() => {
-    channel.on(DARK_MODE_EVENT_NAME, setDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    return () => channel.removeListener(DARK_MODE_EVENT_NAME, setDark);
-  }, [isDark, setDark]);
-
-  return <DocsContainer {...props} theme={isDark ? themes.dark : themes.light} />;
-}
+const ThemedDocsContainer = ({ context, ...props }: DocsContainerProps) => {
+  let isDark = false;
+  try {
+    const { globals } = context.getStoryContext(context.storyById());
+    isDark = (globals as Record<string, unknown>)?.theme === 'dark';
+  } catch {
+    isDark = false;
+  }
+  return (
+    <DocsContainer {...props} context={context} theme={isDark ? sbThemes.dark : sbThemes.light} />
+  );
+};
 
 const preview: Preview = {
+  decorators: [
+    withThemeByClassName({
+      themes: {
+        light: '',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+      parentSelector: 'html',
+    }),
+  ],
   parameters: {
+    docs: {
+      container: ThemedDocsContainer,
+    },
+    themes: {
+      default: 'light',
+      list: [
+        { name: 'light', class: '', color: '#ffffff' },
+        { name: 'dark', class: 'dark', color: '#0f172a' },
+      ],
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/,
+        date: /Date$/i,
       },
     },
-    darkMode: {
-      dark: themes.dark,
-      light: themes.light,
-      current: 'dark',
-      stylePreview: true,
-    },
-    docs: {
-      container: MyDocsContainer,
+    a11y: {
+      test: 'todo',
     },
   },
 };

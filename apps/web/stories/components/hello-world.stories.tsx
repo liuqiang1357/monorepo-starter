@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { expect, within } from 'storybook/test';
 import { HelloWorld } from '@/components/hello-world/hello-world';
 
 const meta: Meta<typeof HelloWorld> = {
@@ -21,11 +22,19 @@ type Story = StoryObj<typeof HelloWorld>;
 
 export const Default: Story = {
   args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Hello World')).toBeVisible();
+  },
 };
 
 export const WithCustomClass: Story = {
   args: {
     className: 'text-blue-600',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Hello World')).toHaveClass('text-blue-600');
   },
 };
 

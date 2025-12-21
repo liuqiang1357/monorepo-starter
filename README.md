@@ -22,30 +22,31 @@ A modern monorepo starter template using pnpm workspaces, Turborepo, and Changes
 
 ```bash
 monorepo-starter/
-├── apps/                 # Application packages
-│   └── web/              # Next.js web application
-├── packages/             # Shared packages, libraries, and utilities
-│   ├── typescript-config/ # Shared TypeScript configurations
-│   ├── eslint-config/    # Shared ESLint configurations
-│   ├── prettier-config/  # Shared Prettier configurations
-│   └── ui/               # Shared UI component library
-├── .changeset/          # Changeset files
-├── .github/             # GitHub related files (workflows, templates, etc.)
-├── .husky/              # Git hooks configuration
-├── .vscode/             # VS Code settings
-├── .turbo/              # Turborepo cache
-├── LICENSE              # License file
-├── .gitignore           # Git ignore file
-├── .node-version        # Node.js version
-├── .npmrc               # npm configuration
-├── commitlint.config.js # Commitlint configuration
-├── package.json         # Root package.json
-├── pnpm-lock.yaml       # pnpm lock file
-├── pnpm-workspace.yaml  # pnpm workspace configuration
-└── turbo.json           # Turborepo configuration
+├── .changeset/             # Changeset files
+├── .github/                # GitHub related files (workflows, templates, etc.)
+├── .husky/                 # Git hooks configuration
+├── .vscode/                # VS Code settings
+├── apps/                   # Application packages
+│   └── web/                # Next.js web application
+├── packages/               # Shared packages, libraries, and utilities
+│   ├── typescript-config/  # Shared TypeScript configurations
+│   ├── eslint-config/      # Shared ESLint configurations
+│   ├── prettier-config/    # Shared Prettier configurations
+│   └── ui/                 # Shared UI component library
+├── .gitattributes          # Git attributes configuration
+├── .gitignore              # Git ignore file
+├── .node-version           # Node.js version
+├── LICENSE                 # License file
+├── commitlint.config.js    # Commitlint configuration
+├── package.json            # Root package.json
+├── pnpm-lock.yaml          # pnpm lock file
+├── pnpm-workspace.yaml     # pnpm workspace configuration
+└── turbo.json              # Turborepo configuration
 ```
 
 ## Getting Started
+
+Run the following commands from the repository root.
 
 ```bash
 # Clone and install
@@ -58,19 +59,23 @@ pnpm install
 
 ```bash
 # Development
-pnpm dev         # Start development servers
-pnpm build       # Build all apps and packages
-pnpm test        # Run tests
-pnpm storybook   # Run storybooks
+pnpm dev            # Start development servers
+pnpm build          # Build all apps and packages
+pnpm start          # Start production servers (where supported)
+pnpm storybook      # Run storybooks
 
 # Code Quality
-pnpm lint        # Run linting
-pnpm lint-staged # Run staged files linting
 pnpm check-types # Type checking
+pnpm lint        # Run linting
+pnpm lint-staged # Run lint-staged (used by git hooks)
 pnpm format      # Format code
+pnpm test        # Run tests
 
 # UI Components
 pnpm add-ui -- [component...]  # Add shadcn UI components to the UI library
+
+# Single package/app
+pnpm --filter web dev
 ```
 
 ## Code Quality
@@ -102,6 +107,8 @@ git commit -m "type(scope): subject" -m "description"
 
 ## Publishing Packages
 
+Make sure your npm auth is configured (for example via npm login or NPM_TOKEN).
+
 ```bash
 # Create a changeset
 pnpm changeset
@@ -117,7 +124,7 @@ pnpm publish-packages
 
 1. Create a directory in `apps/` or `packages/`
 2. Initialize your application/package
-3. Add to workspace in package.json
+3. Add to workspace in `pnpm-workspace.yaml`
 
 ## License
 
