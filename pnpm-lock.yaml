@@ -94,7 +94,7 @@ importers:
         specifier: ^19.1.0
         version: 19.1.0
       '@types/react-dom':
-        specifier: ^19.1.1
+        specifier: ^19.1.0
         version: 19.1.1(@types/react@19.1.0)
       '@vitest/browser-playwright':
         specifier: ^4.0.16
@@ -247,6 +247,12 @@ importers:
       lucide-react:
         specifier: ^0.475.0
         version: 0.475.0(react@19.1.0)
+      react:
+        specifier: ^19.1.0
+        version: 19.1.0
+      react-dom:
+        specifier: ^19.1.0
+        version: 19.1.0(react@19.1.0)
       tailwind-merge:
         specifier: ^3.2.0
         version: 3.2.0
@@ -303,7 +309,7 @@ importers:
         specifier: ^19.1.0
         version: 19.1.0
       '@types/react-dom':
-        specifier: ^19.1.1
+        specifier: ^19.1.0
         version: 19.1.1(@types/react@19.1.0)
       '@vitest/browser-playwright':
         specifier: ^4.0.16
@@ -326,12 +332,6 @@ importers:
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
-      react:
-        specifier: ^19.1.0
-        version: 19.1.0
-      react-dom:
-        specifier: ^19.1.0
-        version: 19.1.0(react@19.1.0)
       storybook:
         specifier: ^10.1.10
         version: 10.1.10(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
