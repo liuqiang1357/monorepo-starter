@@ -102,9 +102,9 @@ pnpm start
 
 ## Deployment
 
-### Cloudflare Pages
+### Cloudflare Workers (OpenNext)
 
-This application is deployed to Cloudflare Pages using GitHub Actions. The workflow is configured in `.github/workflows/deploy-web.yml`.
+This application is deployed to Cloudflare Workers using the OpenNext adapter and GitHub Actions. The workflow is configured in `.github/workflows/deploy-web.yaml`.
 
 Required GitHub Secrets:
 

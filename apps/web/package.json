@@ -4,13 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "pnpm exec next-on-pages",
+    "build": "next build && opennextjs-cloudflare build --skipNextBuild",
     "check-types": "tsc",
     "dev": "next dev --turbopack",
     "format": "prettier --write . --ignore-path .gitignore --ignore-path ../../.gitignore",
+    "generate-cf-types": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "lint": "eslint --max-warnings 0 .",
     "lint-staged": "lint-staged",
-    "start": "wrangler pages dev",
+    "start": "opennextjs-cloudflare preview",
     "storybook": "storybook dev -p 6007 --no-open",
     "test": "vitest run"
   },
@@ -23,7 +24,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.3",
-    "@cloudflare/next-on-pages": "^1.13.13",
+    "@opennextjs/cloudflare": "^1.14.7",
     "@repo/eslint-config": "workspace:*",
     "@repo/prettier-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
@@ -52,6 +53,6 @@
     "vite": "^7.3.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.0.16",
-    "wrangler": "^4.8.0"
+    "wrangler": "^4.53.0"
   }
 }
