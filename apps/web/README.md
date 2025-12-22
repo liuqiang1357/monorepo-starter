@@ -43,12 +43,12 @@ Structure relative to `apps/web`:
 ├── eslint.config.js         # ESLint configuration
 ├── lint-staged.config.js    # Lint-staged configuration
 ├── next.config.ts           # Next.js configuration
+├── open-next.config.ts      # OpenNext configuration
 ├── package.json             # Package manifest
 ├── postcss.config.js        # PostCSS configuration
 ├── prettier.config.js       # Prettier configuration
 ├── tsconfig.json            # TypeScript configuration
 ├── turbo.json               # Turborepo pipeline configuration
-├── vercel.json              # Vercel deployment configuration
 ├── vitest.config.ts         # Vitest configuration
 ├── vitest.setup.ts          # Vitest setup
 ├── vitest.shims.d.ts        # Vitest TypeScript shims

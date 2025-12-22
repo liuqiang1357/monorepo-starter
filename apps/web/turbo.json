@@ -3,7 +3,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "outputs": [".next/**", "!.next/cache/**", ".open-next/**", ".vercel/**"]
+      "outputs": [".next/**", "!.next/cache/**", ".open-next/**"]
     },
     "test": {
       "outputs": ["__screenshots__/**"]
