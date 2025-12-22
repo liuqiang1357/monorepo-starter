@@ -38,11 +38,11 @@ export default tseslint.config(
         { allowString: false, allowNumber: false, allowNullableObject: false },
       ],
 
-      'check-file/filename-naming-convention': ['error', { '**/*.{js,jsx,ts,tsx}': '[0-9a-z-.]+' }],
+      'check-file/filename-naming-convention': ['error', { '**/*.?(c|m)[jt]s?(x)': '[0-9a-z-.]+' }],
     },
   },
   {
-    files: ['**/*.js'],
+    files: ['**/*.?(c|m)js'],
     extends: [tseslint.configs.disableTypeChecked],
   },
 );
