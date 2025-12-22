@@ -1,8 +1,7 @@
 import { createRequire } from 'node:module';
+import base from './base.js';
 
 const require = createRequire(import.meta.url);
-
-import base from './base.js';
 
 export default {
   ...base,
