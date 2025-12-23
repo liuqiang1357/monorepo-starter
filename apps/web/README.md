@@ -16,7 +16,6 @@ Structure relative to `apps/web`:
 ```bash
 .
 ├── .storybook/              # Storybook configuration
-├── __screenshots__/         # Visual regression screenshots
 ├── src/                     # Application source
 │   ├── app/                 # Next.js app router pages and layouts
 │   ├── assets/              # Static assets (images, fonts, etc.)

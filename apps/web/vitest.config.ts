@@ -1,5 +1,4 @@
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
-import storycap from '@storycap-testrun/browser/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
@@ -25,7 +24,7 @@ export default defineConfig({
       },
       {
         extends: true,
-        plugins: [storybookTest(), storycap()],
+        plugins: [storybookTest()],
         test: {
           name: 'storybook',
           browser: {
