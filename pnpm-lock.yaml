@@ -300,7 +300,7 @@ importers:
         specifier: ^19.1.4
         version: 19.2.7
       '@types/react-dom':
-        specifier: ^19.1.1
+        specifier: ^19.1.4
         version: 19.2.3(@types/react@19.2.7)
       '@vitest/browser-playwright':
         specifier: ^4.0.16
