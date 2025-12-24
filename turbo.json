@@ -38,7 +38,10 @@
     },
     "test": {
       "dependsOn": ["^build"]
+    },
+    "check": {
+      "dependsOn": ["^build"]
     }
   },
-  "globalEnv": ["NODE_ENV"]
+  "globalEnv": ["NODE_ENV", "CI"]
 }

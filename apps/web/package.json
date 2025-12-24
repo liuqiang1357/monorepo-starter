@@ -5,15 +5,19 @@
   "type": "module",
   "scripts": {
     "build": "next build && opennextjs-cloudflare build --skipNextBuild",
+    "check": "pnpm check-types && pnpm lint && pnpm test",
     "check-types": "tsc",
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack --port 3000",
     "format": "prettier --write . --ignore-path .gitignore --ignore-path ../../.gitignore",
     "generate-cf-types": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "lint": "eslint --max-warnings 0 .",
     "lint-staged": "lint-staged",
-    "start": "opennextjs-cloudflare preview",
+    "start": "opennextjs-cloudflare preview --port 3000",
     "storybook": "storybook dev -p 6007 --no-open",
-    "test": "vitest run"
+    "test": "pnpm test:unit && pnpm test:storybook && pnpm test:e2e",
+    "test:e2e": "playwright test",
+    "test:storybook": "vitest run --project=storybook",
+    "test:unit": "vitest run --project=unit"
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
@@ -25,6 +29,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.3",
     "@opennextjs/cloudflare": "^1.14.7",
+    "@playwright/test": "^1.57.0",
     "@repo/eslint-config": "workspace:*",
     "@repo/prettier-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
@@ -40,7 +45,6 @@
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.4",
     "@vitest/browser-playwright": "^4.0.16",
-    "@vitest/coverage-v8": "^4.0.16",
     "eslint": "^9.24.0",
     "jsdom": "^26.1.0",
     "lint-staged": "^15.5.0",

@@ -6,19 +6,22 @@
   "exports": {
     "./postcss.config": "./postcss.config.js",
     "./globals.css": "./src/styles/globals.css",
-    "./lib/*": "./src/lib/*.ts",
+    "./utils/*": "./src/utils/*.ts",
     "./components/*": "./src/components/*.tsx",
     "./hooks/*": "./src/hooks/*.ts"
   },
   "scripts": {
     "add-ui": "pnpm dlx shadcn@latest add",
     "postadd-ui": "pnpm run format",
+    "check": "pnpm run check-types && pnpm run lint && pnpm run test",
     "check-types": "tsc",
     "format": "prettier --write . --ignore-path .gitignore --ignore-path ../../.gitignore",
     "lint": "eslint --max-warnings 0 .",
     "lint-staged": "lint-staged",
     "storybook": "storybook dev -p 6006 --no-open",
-    "test": "vitest run"
+    "test": "pnpm run test:unit && pnpm run test:storybook",
+    "test:storybook": "vitest run --project=storybook",
+    "test:unit": "vitest run --project=unit"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.2.5",
@@ -47,7 +50,6 @@
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.4",
     "@vitest/browser-playwright": "^4.0.16",
-    "@vitest/coverage-v8": "^4.0.16",
     "eslint": "^9.24.0",
     "jsdom": "^26.1.0",
     "lint-staged": "^15.5.0",

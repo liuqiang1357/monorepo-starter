@@ -22,22 +22,22 @@ Structure relative to `apps/web`:
 │   ├── components/          # React components specific to this app
 │   │   ├── app/             # Application-level components (e.g., providers)
 │   │   ├── hello-world/     # Example component demonstrating basic patterns
+│   │   │   ├── hello-world.tsx  # Component implementation
+│   │   │   ├── hello-world.test.tsx  # Unit tests (co-located)
+│   │   │   └── hello-world.stories.tsx  # Storybook stories (co-located)
 │   │   └── svgs/            # SVG icon components
+│   ├── actions/             # Handlers for executing operations (e.g., RPC calls)
 │   ├── configs/             # Configuration files for the application
-│   ├── lib/                 # Utility functions and shared logic
-│   │   ├── actions/         # Handlers for executing operations (e.g., RPC calls)
-│   │   ├── errors/          # Error handling utilities
-│   │   ├── hooks/           # Custom React hooks
-│   │   ├── states/          # State management
-│   │   └── utils/           # General utility functions
+│   ├── errors/              # Error handling utilities
+│   ├── hooks/               # Custom React hooks
 │   ├── locales/             # Internationalization files
+│   ├── states/              # State management
+│   ├── stories/             # Storybook documentation and stories not related to components
 │   ├── styles/              # CSS and style definitions
-│   └── types/               # TypeScript type declarations and definitions
-├── stories/                 # Storybook stories
-├── tests/                   # Integration and E2E tests
-│   ├── e2e/                 # End-to-end tests
-│   └── integration/         # Integration tests
-│   # Unit tests should live alongside implementation files in src
+│   ├── types/               # Global TypeScript type declarations and definitions
+│   └── utils/               # General utility functions
+├── tests/                   # Test files
+│   └── e2e/                 # End-to-end tests
 ├── .gitignore               # App-specific git ignore rules
 ├── cloudflare-env.d.ts      # Cloudflare Workers env type definitions
 ├── eslint.config.js         # ESLint configuration
@@ -51,7 +51,6 @@ Structure relative to `apps/web`:
 ├── turbo.json               # Turborepo pipeline configuration
 ├── vitest.config.ts         # Vitest configuration
 ├── vitest.setup.ts          # Vitest setup
-├── vitest.shims.d.ts        # Vitest TypeScript shims
 └── wrangler.jsonc           # Cloudflare Wrangler configuration
 ```
 
@@ -86,8 +85,23 @@ pnpm lint
 # Format code
 pnpm format
 
-# Run tests
+# Run all tests (unit + storybook + e2e)
 pnpm test
+
+# Run unit tests only
+pnpm test:unit
+
+# Run Storybook tests only
+pnpm test:storybook
+
+# Run E2E tests only
+pnpm test:e2e
+
+# Check everything (types + lint + test)
+pnpm check
+
+# Generate Cloudflare Workers type definitions
+pnpm generate-cf-types
 ```
 
 ### Building for Production

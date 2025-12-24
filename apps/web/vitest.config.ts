@@ -10,7 +10,6 @@ export default defineConfig({
   },
   plugins: [tsconfigPaths()],
   test: {
-    passWithNoTests: true,
     projects: [
       {
         extends: true,

@@ -1,4 +1,4 @@
-import { cn } from '@repo/ui/lib/utils';
+import { cn } from '@repo/ui/utils/shadcn';
 import { ComponentProps } from 'react';
 
 export function HelloWorld({ className, ...props }: ComponentProps<'div'>) {

@@ -65,17 +65,18 @@ pnpm start          # Start production servers
 pnpm storybook      # Run storybooks
 
 # Code Quality
-pnpm check-types # Type checking
-pnpm lint        # Run linting
-pnpm lint-staged # Run lint-staged (used by git hooks)
-pnpm format      # Format code
-pnpm test        # Run tests
+pnpm check-types    # Type checking
+pnpm lint           # Run linting
+pnpm lint-staged    # Run lint-staged (used by git hooks)
+pnpm format         # Format code
+pnpm test           # Run all tests
+pnpm check          # Check everything (types + lint + test)
 
 # UI Components
 pnpm add-ui -- [component...]  # Add shadcn UI components to the UI library
 
 # Single package/app
-pnpm --filter web dev
+pnpm --filter web dev          # Run command for specific package
 ```
 
 ## Code Quality
