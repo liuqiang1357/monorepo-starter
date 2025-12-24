@@ -39,6 +39,7 @@ Structure relative to `apps/web`:
 │   └── integration/         # Integration tests
 │   # Unit tests should live alongside implementation files in src
 ├── .gitignore               # App-specific git ignore rules
+├── cloudflare-env.d.ts      # Cloudflare Workers env type definitions
 ├── eslint.config.js         # ESLint configuration
 ├── lint-staged.config.js    # Lint-staged configuration
 ├── next.config.ts           # Next.js configuration
@@ -51,7 +52,7 @@ Structure relative to `apps/web`:
 ├── vitest.config.ts         # Vitest configuration
 ├── vitest.setup.ts          # Vitest setup
 ├── vitest.shims.d.ts        # Vitest TypeScript shims
-└── wrangler.toml            # Cloudflare Wrangler configuration
+└── wrangler.jsonc           # Cloudflare Wrangler configuration
 ```
 
 ## Getting Started

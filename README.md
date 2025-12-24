@@ -61,7 +61,7 @@ pnpm install
 # Development
 pnpm dev            # Start development servers
 pnpm build          # Build all apps and packages
-pnpm start          # Start production servers (where supported)
+pnpm start          # Start production servers
 pnpm storybook      # Run storybooks
 
 # Code Quality

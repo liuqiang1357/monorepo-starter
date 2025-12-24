@@ -4,18 +4,9 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./base": {
-      "types": "./types/base.d.ts",
-      "default": "./src/base.js"
-    },
-    "./react": {
-      "types": "./types/react.d.ts",
-      "default": "./src/react.js"
-    },
-    "./next": {
-      "types": "./types/next.d.ts",
-      "default": "./src/next.js"
-    }
+    "./base": "./src/base.js",
+    "./react": "./src/react.js",
+    "./next": "./src/next.js"
   },
   "scripts": {
     "check-types": "tsc",

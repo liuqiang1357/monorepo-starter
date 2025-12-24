@@ -2,7 +2,11 @@ import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 
-export default {
+/** @typedef {import('prettier').Config} PrettierConfig */
+/** @typedef {import('@ianvs/prettier-plugin-sort-imports').PluginConfig} SortImportsPluginConfig */
+
+/** @type {PrettierConfig & SortImportsPluginConfig} */
+const config = {
   arrowParens: 'avoid',
   printWidth: 100,
   singleQuote: true,
@@ -14,3 +18,5 @@ export default {
   importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
   importOrderTypeScriptVersion: '5.0.0',
 };
+
+export default config;
