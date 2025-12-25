@@ -1,13 +1,12 @@
-name: Deploy Cloudflare
+name: CI
 
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - main
 
 jobs:
-  deploy:
+  ci:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -35,11 +34,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm turbo run build --filter=@repo/web
-
-      - name: Deploy
-        run: pnpm --filter @repo/web exec opennextjs-cloudflare deploy
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      - name: Check code
+        run: pnpm check

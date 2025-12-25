@@ -103,7 +103,7 @@ pnpm generate-cf-types # Generate Cloudflare Workers type definitions
 
 ### Cloudflare Workers (OpenNext)
 
-This application is deployed to Cloudflare Workers using the OpenNext adapter and GitHub Actions. The workflow is configured in `.github/workflows/deploy-cloudflare.yaml`.
+This application is deployed to Cloudflare Workers using the OpenNext adapter and GitHub Actions. The workflow is configured in `.github/workflows/deploy.yaml`.
 
 Required GitHub Secrets:
 

@@ -11,7 +11,8 @@
     "check": "pnpm run check-format && pnpm run check-types",
     "check-format": "prettier --check . --ignore-path .gitignore --ignore-path ../../.gitignore",
     "check-types": "tsc",
-    "format": "prettier --write . --ignore-path .gitignore --ignore-path ../../.gitignore"
+    "format": "prettier --write . --ignore-path .gitignore --ignore-path ../../.gitignore",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "prettier-plugin-packagejson": "^2.5.20",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^25.0.3",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
     "typescript": "^5.9.3"
   }
