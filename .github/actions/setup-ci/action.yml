@@ -1,5 +1,5 @@
 name: Setup CI
-description: Setup Node/pnpm, install deps, cache tooling, and run checks
+description: Shared CI setup for dependencies and tooling
 runs:
   using: "composite"
   steps:
@@ -15,8 +15,6 @@ runs:
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
       shell: bash
-      env:
-        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
     - name: Install Playwright browsers
       run: pnpm dlx playwright install --with-deps chromium

@@ -19,7 +19,7 @@ jobs:
         uses: ./.github/actions/setup-ci
 
       - name: Check code
-        run: pnpm check
+        run: pnpm run check
 
       - name: Build
         run: pnpm turbo run build --filter=@repo/web

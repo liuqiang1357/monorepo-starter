@@ -1,1 +1,1 @@
-pnpm run lint-staged
+pnpm exec turbo run lint-staged --concurrency 1
