@@ -1,4 +1,4 @@
-name: CI setup
+name: Setup CI
 description: Setup Node/pnpm, install deps, cache tooling, and run checks
 runs:
   using: "composite"
