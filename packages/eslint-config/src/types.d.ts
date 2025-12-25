@@ -2,8 +2,8 @@ declare module '@next/eslint-plugin-next' {
   import type { Linter } from 'eslint';
 
   export const flatConfig: {
-    recommended: Linter.Config;
-    coreWebVitals: Linter.Config;
+    coreWebVitals: Linter.Config | Linter.Config[];
+    recommended: Linter.Config | Linter.Config[];
   };
 }
 
@@ -12,9 +12,8 @@ declare module '@tanstack/eslint-plugin-query' {
 
   const plugin: {
     configs: {
-      'flat/recommended': Linter.Config;
+      'flat/recommended': Linter.Config | Linter.Config[];
     };
   };
-
   export default plugin;
 }

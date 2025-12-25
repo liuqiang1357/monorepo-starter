@@ -2,6 +2,7 @@ import eslint from '@eslint/js';
 import gitignore from 'eslint-config-flat-gitignore';
 import checkFile from 'eslint-plugin-check-file';
 import prettier from 'eslint-plugin-prettier/recommended';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import turbo from 'eslint-plugin-turbo';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -17,6 +18,7 @@ export default tseslint.config(
     ],
     plugins: {
       'check-file': checkFile,
+      'simple-import-sort': simpleImportSort,
     },
     languageOptions: {
       parserOptions: {
@@ -40,6 +42,12 @@ export default tseslint.config(
       ],
 
       'check-file/filename-naming-convention': ['error', { '**/*.?(c|m)[jt]s?(x)': '[0-9a-z-.]+' }],
+
+      'simple-import-sort/imports': [
+        'error',
+        { groups: [['^\\u0000', '^node:', '^@?\\w', '^', '^\\.']] },
+      ],
+      'simple-import-sort/exports': 'error',
     },
   },
   {
