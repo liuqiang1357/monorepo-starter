@@ -18,14 +18,6 @@ runs:
       env:
         PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
-    - name: Cache Playwright browsers
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache/ms-playwright
-        key: ${{ runner.os }}-pw-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pw-
-
     - name: Install Playwright browsers
       run: pnpm dlx playwright install --with-deps chromium
       shell: bash
