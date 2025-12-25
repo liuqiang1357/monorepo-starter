@@ -7,7 +7,7 @@ declare module '@next/eslint-plugin-next' {
   };
 }
 
-declare module '@tanstack/eslint-plugin-query' {
+declare module 'eslint-plugin-storybook' {
   import type { Linter } from 'eslint';
 
   const plugin: {

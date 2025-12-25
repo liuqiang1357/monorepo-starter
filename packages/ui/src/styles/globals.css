@@ -3,7 +3,7 @@
 @import '@fontsource-variable/manrope';
 @import '@fontsource-variable/roboto-mono';
 
-@source "..";
+@source '..';
 
 @custom-variant dark (&:is(.dark *));
 
