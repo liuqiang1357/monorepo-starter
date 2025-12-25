@@ -2,15 +2,15 @@
 
 A modern monorepo starter template using pnpm workspaces, Turborepo, and Changesets.
 
-## Features
+## Technology Stack
 
 - 📦 [pnpm](https://pnpm.io/) - Fast package management
-- 🏎️ [Turborepo](https://turbo.build/) - High-performance build system
-- 🚢 [Changesets](https://github.com/changesets/changesets) - Versioning and publishing
-- 🧹 [Husky](https://typicode.github.io/husky/) - Git hooks
-- 📝 [commitlint](https://commitlint.js.org/) - Enforce conventional commits
-- 🛡️ [ESLint](https://eslint.org/) - Code linting with shared configurations
-- 🔄 [TypeScript](https://www.typescriptlang.org/) - Shared TypeScript configurations
+- ⚡ [Turborepo](https://turbo.build/) - High-performance build system
+- 🗂️ [Changesets](https://github.com/changesets/changesets) - Versioning and publishing
+- 🐶 [Husky](https://typicode.github.io/husky/) - Git hooks
+- ✅ [commitlint](https://commitlint.js.org/) - Enforce conventional commits
+- 🧹 [ESLint](https://eslint.org/) - Code linting with shared configurations
+- 🔷 [TypeScript](https://www.typescriptlang.org/) - Shared TypeScript configurations
 - 🎨 [Prettier](https://prettier.io/) - Code formatting with shared configurations
 
 ## Requirements
@@ -60,17 +60,19 @@ pnpm install
 ```bash
 # Development
 pnpm dev            # Start development servers
-pnpm build          # Build all apps and packages
-pnpm start          # Start production servers
 pnpm storybook      # Run storybooks
 
-# Code Quality
-pnpm check-types    # Type checking
-pnpm lint           # Run linting
-pnpm lint-staged    # Run lint-staged (used by git hooks)
+# Build & Run
+pnpm build          # Build all apps and packages
+pnpm start          # Start production servers
+
+# Code Quality & Testing
 pnpm format         # Format code
+pnpm check-format   # Check code formatting
+pnpm lint           # Run linting
+pnpm check-types    # Type checking
 pnpm test           # Run all tests
-pnpm check          # Check everything (types + lint + test)
+pnpm check          # Check everything (format + types + lint + test)
 
 # UI Components
 pnpm add-ui -- [component...]  # Add shadcn UI components to the UI library

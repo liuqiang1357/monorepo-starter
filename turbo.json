@@ -11,6 +11,7 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**"]
     },
+    "check-format": {},
     "check-types": {
       "dependsOn": ["^build"]
     },

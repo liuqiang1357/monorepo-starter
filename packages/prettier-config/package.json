@@ -8,6 +8,8 @@
     "./react": "./src/react.js"
   },
   "scripts": {
+    "check": "pnpm run check-format && pnpm run check-types",
+    "check-format": "prettier --check . --ignore-path .gitignore --ignore-path ../../.gitignore",
     "check-types": "tsc",
     "format": "prettier --write . --ignore-path .gitignore --ignore-path ../../.gitignore"
   },

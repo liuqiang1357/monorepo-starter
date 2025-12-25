@@ -5,6 +5,8 @@
   "scripts": {
     "add-ui": "turbo run add-ui",
     "build": "turbo run build",
+    "check": "turbo run check",
+    "check-format": "turbo run check-format",
     "check-types": "turbo run check-types",
     "dev": "turbo run dev",
     "format": "turbo run format",
@@ -14,8 +16,7 @@
     "publish-packages": "turbo run check build && changeset version && changeset publish",
     "start": "turbo run start",
     "storybook": "turbo run storybook",
-    "test": "turbo run test",
-    "check": "turbo run check"
+    "test": "turbo run test"
   },
   "devDependencies": {
     "@changesets/cli": "^2.28.1",

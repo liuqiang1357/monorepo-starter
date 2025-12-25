@@ -9,6 +9,8 @@
     "./next": "./src/next.js"
   },
   "scripts": {
+    "check": "pnpm run check-format && pnpm run check-types && pnpm run lint",
+    "check-format": "prettier --check . --ignore-path .gitignore --ignore-path ../../.gitignore",
     "check-types": "tsc",
     "format": "prettier --write . --ignore-path .gitignore --ignore-path ../../.gitignore",
     "lint": "eslint --max-warnings 0 .",
