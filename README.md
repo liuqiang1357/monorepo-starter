@@ -1,4 +1,4 @@
-# Monorepo Starter1
+# Monorepo Starter
 
 A modern monorepo starter template using pnpm workspaces, Turborepo, and Changesets.
 
