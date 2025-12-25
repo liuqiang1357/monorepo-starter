@@ -3,14 +3,14 @@ description: Setup Node/pnpm, install deps, cache tooling, and run checks
 runs:
   using: "composite"
   steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+
     - name: Install Node.js
       uses: actions/setup-node@v4
       with:
         node-version-file: .node-version
         cache: pnpm
-
-    - name: Install pnpm
-      uses: pnpm/action-setup@v4
 
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
