@@ -5,12 +5,15 @@
   "editor.formatOnSave": true,
   "editor.quickSuggestions": { "strings": true },
   "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "explorer.sortOrderLexicographicOptions": "upper",
-  "javascript.preferences.quoteStyle": "double",
-  "typescript.preferences.quoteStyle": "double",
 
   // Extensions settings
   "eslint.workingDirectories": [{ "mode": "auto" }],
-  "tailwindCSS.classAttributes": ["class", "className", ".*Class", ".*ClassName", "classNames"],
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    ".*Class",
+    ".*ClassName",
+    "classNames"
+  ],
   "tailwindCSS.classFunctions": ["cva", "cx", "cn"]
 }

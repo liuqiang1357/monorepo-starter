@@ -18,7 +18,7 @@ A modern monorepo starter template using pnpm workspaces, Turborepo, and Changes
 - Node.js 22.x
 - pnpm 10.5.2+
 
-## Project Structure
+## Directory Structure
 
 ```bash
 monorepo-starter/
@@ -36,11 +36,12 @@ monorepo-starter/
 ├── .gitattributes          # Git attributes configuration
 ├── .gitignore              # Git ignore file
 ├── .node-version           # Node.js version
-├── LICENSE                 # License file
 ├── commitlint.config.js    # Commitlint configuration
+├── LICENSE                 # License file
 ├── package.json            # Root package.json
 ├── pnpm-lock.yaml          # pnpm lock file
 ├── pnpm-workspace.yaml     # pnpm workspace configuration
+├── README.md               # Project documentation
 └── turbo.json              # Turborepo configuration
 ```
 

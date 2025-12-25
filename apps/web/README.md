@@ -14,7 +14,7 @@ This is the web frontend application for the monorepo project. It's built with N
 - Node.js 22.x
 - pnpm 10.5.2+
 
-## Project Structure
+## Directory Structure
 
 Structure relative to `apps/web`:
 
@@ -50,8 +50,10 @@ Structure relative to `apps/web`:
 ├── next.config.ts              # Next.js configuration
 ├── open-next.config.ts         # OpenNext configuration
 ├── package.json                # Package manifest
+├── playwright.config.ts        # Playwright configuration
 ├── postcss.config.js           # PostCSS configuration
 ├── prettier.config.js          # Prettier configuration
+├── README.md                   # App documentation
 ├── tsconfig.json               # TypeScript configuration
 ├── turbo.json                  # Turborepo pipeline configuration
 ├── vitest.config.ts            # Vitest configuration
