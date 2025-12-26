@@ -17,9 +17,9 @@
     "start": "turbo run start",
     "storybook": "turbo run storybook",
     "test": "turbo run test:unit test:storybook test:e2e",
-    "test:unit": "turbo run test:unit",
+    "test:e2e": "turbo run test:e2e",
     "test:storybook": "turbo run test:storybook",
-    "test:e2e": "turbo run test:e2e"
+    "test:unit": "turbo run test:unit"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
