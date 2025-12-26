@@ -16,7 +16,7 @@
     "lint-staged": "lint-staged",
     "start": "opennextjs-cloudflare preview --port 3000",
     "storybook": "storybook dev -p 6007 --no-open",
-    "test": "pnpm test:unit && pnpm test:storybook && pnpm test:e2e",
+    "test": "pnpm run test:unit && pnpm run test:storybook && pnpm run test:e2e",
     "test:e2e": "playwright test",
     "test:storybook": "vitest run --project=storybook",
     "test:unit": "vitest run --project=unit"

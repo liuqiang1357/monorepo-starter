@@ -34,7 +34,7 @@ jobs:
         uses: ./.github/actions/setup-workspace
 
       - name: Build
-        run: pnpm turbo run build --filter=@repo/web
+        run: pnpm exec turbo --filter=@repo/web run build
 
       - name: Deploy
         run: pnpm --filter @repo/web exec opennextjs-cloudflare deploy
