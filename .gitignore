@@ -1,15 +1,12 @@
 # Dependencies
-node_modules
+node_modules/
 
 # Build & tooling outputs
-.turbo
-dist
+.turbo/
+dist/
 
-# Environment & secrets
-*.local
-.env*
-!.env.example
-*.pem
+# Tooling caches
+.cache/
 
 # Logs
 *.log
@@ -18,9 +15,15 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# Environment & secrets
+*.local
+.env*
+!.env.example
+*.pem
+
 # Editor & OS files
-.vscode/*
+.vscode/
 !.vscode/extensions.json
 !.vscode/settings.json
-.idea
+.idea/
 .DS_Store

@@ -4,6 +4,12 @@
   "tasks": {
     "build": {
       "outputs": [".next/**", "!.next/cache/**", ".open-next/**"]
+    },
+    "test": {
+      "outputs": ["test-results/**", "playwright-report/**"]
+    },
+    "test:e2e": {
+      "outputs": ["test-results/**", "playwright-report/**"]
     }
   }
 }

@@ -1,5 +1,5 @@
-name: Setup CI
-description: Shared CI setup for dependencies and tooling
+name: Setup workspace
+description: Shared workspace setup for dependencies and tooling
 runs:
   using: "composite"
   steps:
@@ -16,14 +16,10 @@ runs:
       run: pnpm install --frozen-lockfile
       shell: bash
 
-    - name: Install Playwright browsers
-      run: pnpm dlx playwright install --with-deps chromium
-      shell: bash
-
     - name: Setup Turborepo cache
       uses: actions/cache@v4
       with:
         path: .turbo
-        key: ${{ runner.os }}-turbo-${{ github.sha }}
+        key: ${{ runner.os }}-turbo-${{ env.DEPLOY_SHA || github.sha }}
         restore-keys: |
           ${{ runner.os }}-turbo-

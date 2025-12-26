@@ -9,14 +9,11 @@ A modern monorepo starter template using pnpm workspaces, Turborepo, and Changes
 - 🗂️ [Changesets](https://github.com/changesets/changesets) - Versioning and publishing
 - 🐶 [Husky](https://typicode.github.io/husky/) - Git hooks
 - ✅ [commitlint](https://commitlint.js.org/) - Enforce conventional commits
-- 🧹 [ESLint](https://eslint.org/) - Code linting with shared configurations
-- 🔷 [TypeScript](https://www.typescriptlang.org/) - Shared TypeScript configurations
-- 🎨 [Prettier](https://prettier.io/) - Code formatting with shared configurations
 
 ## Requirements
 
 - Node.js 22.x
-- pnpm 10.5.2+
+- pnpm 10.5.2
 
 ## Directory Structure
 
@@ -60,33 +57,39 @@ pnpm install
 
 ```bash
 # Development
-pnpm dev            # Start development servers
-pnpm storybook      # Run storybooks
+pnpm dev            # Start all dev servers
+pnpm storybook      # Start Storybook
 
 # Build & Run
 pnpm build          # Build all apps and packages
-pnpm start          # Start production servers
+pnpm start          # Start all production servers
 
-# Code Quality & Testing
+# Code Quality
+pnpm check          # Run all checks (format + types + lint)
+pnpm check-format   # Check formatting
 pnpm format         # Format code
-pnpm check-format   # Check code formatting
-pnpm lint           # Run linting
-pnpm check-types    # Type checking
+pnpm check-types    # Typecheck
+pnpm lint           # Lint code
+pnpm fix-lint       # Fix lint issues
+
+# Testing
 pnpm test           # Run all tests
-pnpm check          # Check everything (format + types + lint + test)
+pnpm test:unit      # Run unit tests
+pnpm test:storybook # Run Storybook tests
+pnpm test:e2e       # Run E2E tests
 
 # UI Components
 pnpm add-ui -- [component...]  # Add shadcn UI components to the UI library
 
 # Single package/app
-pnpm --filter web dev          # Run command for specific package
+pnpm --filter web dev          # Run a command for a specific package/app
 ```
 
 ## Code Quality
 
 ### Husky Git Hooks
 
-- **pre-commit**: Runs type checking and linting on code
+- **pre-commit**: Checks formating and runs linting on code
 - **commit-msg**: Validates commit messages
 
 ### Conventional Commits

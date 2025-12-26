@@ -1,21 +1,76 @@
 name: CI
 
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - main
+      - dev
+  push:
+    branches:
+      - main
+      - dev
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   ci:
+    name: ${{ matrix.name }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      NEXT_PUBLIC_ENVIRONMENT: development
+    strategy:
+      matrix:
+        include:
+          - name: format
+            command: check-format
+          - name: types
+            command: check-types
+          - name: lint
+            command: lint
+          - name: test:unit
+            command: test:unit
+          - name: test:storybook
+            command: test:storybook
+            playwright: true
+          - name: test:e2e
+            command: test:e2e
+            playwright: true
+            upload_e2e: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup CI
-        uses: ./.github/actions/setup-ci
+      - name: Setup Workspace
+        uses: ./.github/actions/setup-workspace
 
-      - name: Check code
-        run: pnpm run check
+      - name: Cache Playwright
+        uses: actions/cache@v4
+        if: ${{ matrix.playwright }}
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: Install Playwright browsers
+        if: ${{ matrix.playwright }}
+        run: pnpm --filter @repo/web exec playwright install --with-deps chromium
+
+      - name: Run ${{ matrix.command }}
+        run: pnpm run ${{ matrix.command }}
+
+      - name: Upload Playwright report
+        if: ${{ always() && matrix.upload_e2e }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.name }}
+          path: |
+            apps/*/playwright-report
+            apps/*/test-results
+          if-no-files-found: warn
+          retention-days: 7

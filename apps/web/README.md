@@ -12,7 +12,7 @@ This is the web frontend application for the monorepo project. It's built with N
 ## Requirements
 
 - Node.js 22.x
-- pnpm 10.5.2+
+- pnpm 10.5.2
 
 ## Directory Structure
 
@@ -77,26 +77,29 @@ Run these commands from the monorepo root or `apps/web`. If you're at the root a
 
 ```bash
 # Development
-pnpm dev            # Start the development server
-pnpm storybook      # Run Storybook
+pnpm dev            # Start the dev server
+pnpm storybook      # Start Storybook
 
 # Build & Run
-pnpm build          # Build the application
+pnpm build          # Build the app
 pnpm start          # Start the production server
 
-# Code Quality & Testing
+# Code Quality
+pnpm check          # Run all checks (format + types + lint)
+pnpm check-format   # Check formatting
 pnpm format         # Format code
-pnpm check-format   # Check code formatting
-pnpm lint           # Run linting
-pnpm check-types    # Run type checking
-pnpm test           # Run all tests (unit + storybook + e2e)
-pnpm test:unit      # Run unit tests only
-pnpm test:storybook # Run Storybook tests only
-pnpm test:e2e       # Run E2E tests only
-pnpm check          # Check everything (format + types + lint + test)
+pnpm check-types    # Typecheck
+pnpm lint           # Lint code
+pnpm fix-lint       # Fix lint issues
+
+# Testing
+pnpm test           # Run all tests
+pnpm test:unit      # Run unit tests
+pnpm test:storybook # Run Storybook tests
+pnpm test:e2e       # Run E2E tests
 
 # Tooling
-pnpm generate-cf-types # Generate Cloudflare Workers type definitions
+pnpm generate-cf-types # Generate Cloudflare Workers types
 ```
 
 ## Deployment

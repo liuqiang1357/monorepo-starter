@@ -13,9 +13,10 @@
   "scripts": {
     "add-ui": "pnpm dlx shadcn@latest add",
     "postadd-ui": "pnpm run format",
-    "check": "pnpm run check-format && pnpm run check-types && pnpm run lint && pnpm run test",
+    "check": "pnpm run check-format && pnpm run check-types && pnpm run lint",
     "check-format": "prettier --check . --ignore-path .gitignore --ignore-path ../../.gitignore",
     "check-types": "tsc",
+    "fix-lint": "eslint --fix .",
     "format": "prettier --write . --ignore-path .gitignore --ignore-path ../../.gitignore",
     "lint": "eslint --max-warnings 0 .",
     "lint-staged": "lint-staged",
