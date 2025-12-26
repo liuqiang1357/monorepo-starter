@@ -39,7 +39,7 @@ jobs:
         uses: ./.github/actions/setup-workspace
 
       - name: Install Playwright browsers
-        run: pnpm --filter "./apps/*" exec playwright install --with-deps
+        run: pnpm --filter "./apps/*" --workspace-concurrency 1 exec playwright install --with-deps
 
       - name: Run Playwright tests
         run: pnpm exec turbo run test:storybook test:e2e
