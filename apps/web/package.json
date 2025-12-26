@@ -18,8 +18,8 @@
     "storybook": "storybook dev -p 6007 --no-open",
     "test": "pnpm run test:unit && pnpm run test:storybook && pnpm run test:e2e",
     "test:e2e": "playwright test",
-    "test:storybook": "vitest run --project=storybook",
-    "test:unit": "vitest run --project=unit"
+    "test:storybook": "vitest run --project storybook",
+    "test:unit": "vitest run --project unit"
   },
   "dependencies": {
     "@repo/ui": "workspace:*",

@@ -16,60 +16,45 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  ci:
-    name: ${{ matrix.name }}
+  quick-checks:
+    name: Quick checks
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    env:
-      NEXT_PUBLIC_ENVIRONMENT: development
-    strategy:
-      matrix:
-        include:
-          - name: format
-            command: check-format
-          - name: types
-            command: check-types
-          - name: lint
-            command: lint
-          - name: test:unit
-            command: test:unit
-          - name: test:storybook
-            command: test:storybook
-            playwright: true
-          - name: test:e2e
-            command: test:e2e
-            playwright: true
-            upload_e2e: true
-            artifact_name: test-e2e
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Workspace
+      - name: Setup workspace
         uses: ./.github/actions/setup-workspace
 
-      - name: Cache Playwright
-        uses: actions/cache@v4
-        if: ${{ matrix.playwright }}
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-playwright-
+      - name: Run checks and unit tests
+        run: pnpm exec turbo run check-format check-types lint test:unit
 
-      - name: Install Playwright browsers
-        if: ${{ matrix.playwright }}
-        run: pnpm --filter @repo/web exec playwright install --with-deps chromium
+  playwright-tests:
+    name: Playwright tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    container:
+      image: mcr.microsoft.com/playwright:v1.57.0-noble
+    env:
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Run ${{ matrix.command }}
-        run: pnpm run ${{ matrix.command }}
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
+
+      - name: Run Playwright tests
+        run: pnpm exec turbo run test:storybook test:e2e
 
       - name: Upload Playwright report
-        if: ${{ always() && matrix.upload_e2e }}
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-${{ matrix.artifact_name }}
+          name: playwright-report
           path: |
             apps/*/playwright-report
             apps/*/test-results

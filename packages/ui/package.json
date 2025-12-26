@@ -22,8 +22,8 @@
     "lint-staged": "lint-staged",
     "storybook": "storybook dev -p 6006 --no-open",
     "test": "pnpm run test:unit && pnpm run test:storybook",
-    "test:storybook": "vitest run --project=storybook",
-    "test:unit": "vitest run --project=unit"
+    "test:storybook": "vitest run --project storybook",
+    "test:unit": "vitest run --project unit"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.2.8",
