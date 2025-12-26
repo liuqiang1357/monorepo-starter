@@ -12,8 +12,8 @@ A modern monorepo starter template using pnpm workspaces, Turborepo, and Changes
 
 ## Requirements
 
-- Node.js 22.x
-- pnpm 10.5.2
+- Node.js 24.x
+- pnpm 10.26.2
 
 ## Directory Structure
 

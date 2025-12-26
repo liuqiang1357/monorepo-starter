@@ -11,8 +11,8 @@ This is the web frontend application for the monorepo project. It's built with N
 
 ## Requirements
 
-- Node.js 22.x
-- pnpm 10.5.2
+- Node.js 24.x
+- pnpm 10.26.2
 
 ## Directory Structure
 
