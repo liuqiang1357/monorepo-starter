@@ -31,17 +31,15 @@ jobs:
     needs: quick-checks
     permissions:
       contents: read
-    container:
-      image: mcr.microsoft.com/playwright:v1.57.0-noble
-    env:
-      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
-      PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
+
+      - name: Install Playwright browsers
+        run: pnpm --filter "./apps/*" exec playwright install --with-deps
 
       - name: Run Playwright tests
         run: pnpm exec turbo run test:storybook test:e2e
