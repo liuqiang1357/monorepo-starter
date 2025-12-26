@@ -12,7 +12,7 @@
     "fix-lint": "eslint --fix .",
     "format": "prettier --write . --ignore-path .gitignore --ignore-path ../../.gitignore",
     "generate-cf-types": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
-    "lint": "eslint --max-warnings 0 .",
+    "lint": "next typegen && eslint --max-warnings 0 .",
     "lint-staged": "lint-staged",
     "start": "opennextjs-cloudflare preview --port 3000",
     "storybook": "storybook dev -p 6007 --no-open",
