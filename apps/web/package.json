@@ -6,11 +6,11 @@
   "scripts": {
     "build": "next build && opennextjs-cloudflare build --skipNextBuild",
     "check": "pnpm run check-format && pnpm run check-types && pnpm run lint",
-    "check-format": "prettier --check . --ignore-path .gitignore --ignore-path ../../.gitignore",
+    "check-format": "prettier --check --ignore-path .gitignore --ignore-path ../../.gitignore .",
     "check-types": "next typegen && tsc",
     "dev": "next dev --turbopack --port 3000",
     "fix-lint": "eslint --fix .",
-    "format": "prettier --write . --ignore-path .gitignore --ignore-path ../../.gitignore",
+    "format": "prettier --write --ignore-path .gitignore --ignore-path ../../.gitignore .",
     "generate-cf-types": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "lint": "next typegen && eslint --max-warnings 0 .",
     "lint-staged": "lint-staged",
