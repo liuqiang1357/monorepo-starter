@@ -9,6 +9,7 @@
       "outputs": ["test-results/**", "playwright-report/**"]
     },
     "test:e2e": {
+      "env": ["PLAYWRIGHT_PORT"],
       "outputs": ["test-results/**", "playwright-report/**"]
     }
   }

@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["NODE_ENV", "CI"],
   "ui": "tui",
   "tasks": {
     "add-ui": {
@@ -57,6 +58,5 @@
     "test:e2e": {
       "dependsOn": ["^build"]
     }
-  },
-  "globalEnv": ["NODE_ENV", "CI"]
+  }
 }
