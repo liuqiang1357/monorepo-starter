@@ -112,6 +112,24 @@ pnpm commit
 git commit -m "type(scope): subject" -m "description"
 ```
 
+## CI/CD
+
+Workflows live in `.github/workflows` and are shared across the monorepo. App-specific behavior and deployment details live in each app README (for example `apps/web/README.md`).
+
+### Turborepo Remote Cache
+
+CI uses Turborepo to orchestrate tasks (format, lint, tests, build). Remote caching is optional and configured in GitHub Actions:
+
+- `TURBO_TEAM` (GitHub Actions variable)
+- `TURBO_TOKEN` (GitHub Actions secret)
+
+If these are not set, Turbo uses the local cache only.
+
+### GitHub Actions Workflows
+
+- `check-pr.yaml`: Runs project checks on `pull_request`. Optional E2E runs when a PR has the `e2e` label.
+- `deploy.yaml`: Runs deploy pipeline on `push`, `pull_request`, and manual dispatch. Preview vs production behavior depends on the app.
+
 ## Publishing Packages
 
 Make sure your npm auth is configured (for example via npm login or NPM_TOKEN).
