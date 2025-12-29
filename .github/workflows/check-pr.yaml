@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  TURBO_TEAM: ${{ vars.TURBO_TEAM || secrets.TURBO_TEAM }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
@@ -34,11 +34,7 @@ jobs:
   e2e-tests:
     name: E2E tests (on demand)
     runs-on: ubuntu-latest
-    if: >-
-      ${{
-        (github.event_name == 'workflow_dispatch' && inputs.run_e2e) ||
-        (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'e2e'))
-      }}
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'e2e') }}
     permissions:
       contents: read
     steps:
