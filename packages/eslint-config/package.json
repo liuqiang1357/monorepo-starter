@@ -21,7 +21,7 @@
     "@eslint/js": "^9.39.2",
     "@next/eslint-plugin-next": "^15.5.9",
     "@tanstack/eslint-plugin-query": "^5.91.2",
-    "@typescript-eslint/utils": "^8.50.1",
+    "@typescript-eslint/utils": "^8.51.0",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-check-file": "^3.3.1",
@@ -29,10 +29,10 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint-plugin-storybook": "^10.1.10",
+    "eslint-plugin-storybook": "^10.1.11",
     "eslint-plugin-turbo": "^2.7.2",
     "globals": "^16.5.0",
-    "typescript-eslint": "^8.50.1"
+    "typescript-eslint": "^8.51.0"
   },
   "devDependencies": {
     "@repo/prettier-config": "workspace:*",
