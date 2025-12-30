@@ -2,7 +2,6 @@ name: Deploy Cloudflare
 
 on:
   workflow_dispatch:
-  pull_request:
   push:
     branches:
       - "**"
@@ -19,11 +18,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    if: >-
-      ${{
-        github.event_name != 'pull_request' ||
-        github.event.pull_request.head.repo.full_name == github.repository
-      }}
     permissions:
       contents: read
     steps:
@@ -36,36 +30,25 @@ jobs:
       - name: Build
         run: pnpm exec turbo run build --filter "./apps/*"
 
-      - name: Compute preview alias
-        id: alias
-        if: github.event_name == 'pull_request' || github.ref_name != 'main'
-        shell: bash
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            echo "preview_alias=pr-${{ github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
+      - name: Deploy production (main)
+        if: github.ref_name == 'main'
+        run: pnpm --filter "./apps/*" exec opennextjs-cloudflare deploy
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
+      - name: Upload preview (other branches)
+        if: github.ref_name != 'main'
+        run: |
           ref="${GITHUB_REF_NAME}"
           slug=$(echo "$ref" \
             | tr '[:upper:]' '[:lower:]' \
             | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g' \
             | cut -c1-24)
           [ -n "$slug" ] || slug="branch"
-          echo "preview_alias=branch-${slug}" >> "$GITHUB_OUTPUT"
-
-      - name: Upload preview (PR / branch)
-        if: github.event_name == 'pull_request' || github.ref_name != 'main'
-        run: |
+          preview_alias="branch-${slug}"
           pnpm --filter "./apps/*" exec opennextjs-cloudflare upload \
-            --preview-alias "${{ steps.alias.outputs.preview_alias }}"
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-
-      - name: Deploy production (main)
-        if: github.event_name != 'pull_request' && github.ref_name == 'main'
-        run: pnpm --filter "./apps/*" exec opennextjs-cloudflare deploy
+            --preview-alias "${preview_alias}"
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

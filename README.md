@@ -128,7 +128,7 @@ If these are not set, Turbo uses the local cache only.
 ### GitHub Actions Workflows
 
 - `check-pr.yaml`: Runs project checks on `pull_request`. Optional E2E runs when a PR has the `e2e` label.
-- `deploy-*.yaml`: Runs deploy pipeline on `push`, `pull_request`, and manual dispatch. Preview vs production behavior depends on the app.
+- `deploy-*.yaml`: Runs deploy pipeline on `push` and manual dispatch. Preview vs production behavior depends on the app.
 
 ## Publishing Packages
 
