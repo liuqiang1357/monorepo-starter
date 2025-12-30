@@ -1,0 +1,11 @@
+name: Setup test workspace
+description: Prepare workspace and test tooling for CI
+runs:
+  using: "composite"
+  steps:
+    - name: Setup workspace
+      uses: ./.github/actions/setup-workspace
+
+    - name: Install Playwright browsers
+      run: pnpm dlx playwright@1.57.0 install --with-deps chromium
+      shell: bash

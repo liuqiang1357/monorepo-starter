@@ -3,14 +3,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "outputs": [".next/**", "!.next/cache/**", ".open-next/**"]
-    },
-    "test": {
-      "outputs": ["test-results/**", "playwright-report/**"]
-    },
-    "test:e2e": {
-      "env": ["PLAYWRIGHT_PORT"],
-      "outputs": ["test-results/**", "playwright-report/**"]
+      "outputs": [".open-next/**"]
     }
   }
 }

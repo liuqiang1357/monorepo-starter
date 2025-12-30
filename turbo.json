@@ -50,13 +50,16 @@
       "dependsOn": ["^build"]
     },
     "test:unit": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": ["test-artifacts/unit/**"]
     },
     "test:storybook": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": ["test-artifacts/storybook/**"]
     },
     "test:e2e": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": ["test-artifacts/e2e/**"]
     }
   }
 }

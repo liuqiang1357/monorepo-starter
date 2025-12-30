@@ -22,14 +22,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup workspace
-        uses: ./.github/actions/setup-workspace
-
-      - name: Install Playwright browsers
-        run: pnpm --filter="./apps/*" --workspace-concurrency=1 exec playwright install --with-deps chromium
+      - name: Setup test workspace
+        uses: ./.github/actions/setup-test-workspace
 
       - name: Run checks and tests
         run: pnpm exec turbo run check-format check-types lint test:unit test:storybook
+
+      - name: Upload unit test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-artifacts
+          path: |
+            apps/*/test-artifacts/unit
+            packages/*/test-artifacts/unit
+          retention-days: 7
+
+      - name: Upload storybook test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: storybook-test-artifacts
+          path: |
+            apps/*/test-artifacts/storybook
+            packages/*/test-artifacts/storybook
+          retention-days: 7
 
   e2e-tests:
     name: E2E tests (on demand)
@@ -41,22 +58,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup workspace
-        uses: ./.github/actions/setup-workspace
-
-      - name: Install Playwright browsers
-        run: pnpm --filter="./apps/*" --workspace-concurrency=1 exec playwright install --with-deps chromium
+      - name: Setup test workspace
+        uses: ./.github/actions/setup-test-workspace
 
       - name: Run E2E tests
         run: pnpm exec turbo run test:e2e
 
-      - name: Upload Playwright report
+      - name: Upload e2e test artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
+          name: e2e-test-artifacts
           path: |
-            apps/*/playwright-report
-            apps/*/test-results
-          if-no-files-found: warn
+            apps/*/test-artifacts/e2e
+            packages/*/test-artifacts/e2e
           retention-days: 7

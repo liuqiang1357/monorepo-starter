@@ -4,6 +4,7 @@ node_modules/
 # Build & tooling outputs
 .turbo/
 dist/
+test-artifacts/
 
 # Tooling caches
 .cache/

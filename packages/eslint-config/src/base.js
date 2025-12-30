@@ -49,6 +49,8 @@ export default defineConfig(
         { groups: [['^\\u0000', '^node:', '^@?\\w', '^', '^\\.']] },
       ],
       'simple-import-sort/exports': 'error',
+
+      'turbo/no-undeclared-env-vars': ['error', { allowList: ['^PORT$'] }],
     },
   },
   {
