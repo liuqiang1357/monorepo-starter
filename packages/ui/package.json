@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./postcss.config": "./postcss.config.js",
-    "./globals.css": "./src/styles/globals.css",
-    "./utils/*": "./src/utils/*.ts",
     "./components/*": "./src/components/*.tsx",
-    "./hooks/*": "./src/hooks/*.ts"
+    "./hooks/*": "./src/hooks/*.ts",
+    "./styles/*": "./src/styles/*",
+    "./utils/*": "./src/utils/*.ts",
+    "./postcss.config": "./postcss.config.js"
   },
   "scripts": {
     "add-ui": "pnpm dlx shadcn@latest add",
