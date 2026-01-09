@@ -66,6 +66,7 @@ pnpm start          # Start all production servers
 
 # Code Quality
 pnpm check          # Run all checks (format + types + lint)
+pnpm fix            # Fix format/lint
 pnpm check-format   # Check formatting
 pnpm format         # Format code
 pnpm check-types    # Typecheck

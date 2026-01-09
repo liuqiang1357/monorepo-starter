@@ -24,6 +24,9 @@
       "cache": false,
       "persistent": true
     },
+    "fix": {
+      "cache": false
+    },
     "fix-lint": {
       "cache": false
     },

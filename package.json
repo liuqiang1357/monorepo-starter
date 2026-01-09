@@ -9,6 +9,7 @@
     "check-format": "turbo run check-format",
     "check-types": "turbo run check-types",
     "dev": "turbo run dev",
+    "fix": "turbo run format fix-lint",
     "fix-lint": "turbo run fix-lint",
     "format": "turbo run format",
     "lint": "turbo run lint",
