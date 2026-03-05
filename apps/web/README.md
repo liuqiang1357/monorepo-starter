@@ -24,6 +24,9 @@ Structure relative to `apps/web`:
 ├── src/                        # Application source
 │   ├── app/                    # Next.js app router pages and layouts
 │   ├── features/               # Business features
+│   │   ├── app-shell/          # Composition feature for app-level wiring
+│   │   │   └── components/     # App-shell components used by router layouts
+│   │   │       └── providers.tsx           # Theme/global providers wrapper
 │   │   └── hello-world/        # Example feature
 │   │       └── components/     # Feature components
 │   │           ├── hello-world.tsx           # Component implementation
@@ -33,8 +36,6 @@ Structure relative to `apps/web`:
 │       ├── actions/            # Shared actions
 │       ├── assets/             # Shared static assets
 │       ├── components/         # Shared components
-│       │   └── app-shell/      # App-shell components
-│       │       └── providers.tsx
 │       ├── configs/            # Shared configuration
 │       ├── errors/             # Shared error handling utilities
 │       ├── hooks/              # Shared hooks

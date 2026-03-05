@@ -1,7 +1,7 @@
 import '@/shared/styles/globals.css';
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
-import { Providers } from '@/shared/components/app-shell/providers';
+import { Providers } from '@/features/app-shell/components/providers';
 import { appDescription, appName } from '@/shared/configs/app';
 
 export const metadata: Metadata = {
