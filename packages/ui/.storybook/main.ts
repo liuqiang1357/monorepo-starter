@@ -11,7 +11,11 @@ function getAbsolutePath(value: string) {
 }
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.?(c|m)[jt]s?(x)'],
+  stories: [
+    '../stories/**/*.mdx',
+    '../stories/**/*.stories.?(c|m)[jt]s?(x)',
+    '../src/**/*.stories.?(c|m)[jt]s?(x)',
+  ],
   addons: [
     getAbsolutePath('@chromatic-com/storybook'),
     getAbsolutePath('@storybook/addon-vitest'),

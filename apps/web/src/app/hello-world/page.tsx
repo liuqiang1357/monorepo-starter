@@ -1,4 +1,4 @@
-import { HelloWorld } from '@/components/hello-world/hello-world';
+import { HelloWorld } from '@/features/hello-world/components/hello-world';
 
 export default function Page() {
   return (

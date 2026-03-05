@@ -23,24 +23,28 @@ Structure relative to `apps/web`:
 ├── .storybook/                 # Storybook configuration
 ├── src/                        # Application source
 │   ├── app/                    # Next.js app router pages and layouts
-│   ├── assets/                 # Static assets (images, fonts, etc.)
-│   ├── components/             # React components specific to this app
-│   │   ├── app/                # Application-level components (e.g., providers)
-│   │   ├── hello-world/        # Example component demonstrating basic patterns
-│   │   │   ├── hello-world.tsx           # Component implementation
-│   │   │   ├── hello-world.test.tsx      # Unit tests (co-located)
-│   │   │   └── hello-world.stories.tsx   # Storybook stories (co-located)
-│   │   └── svgs/               # SVG icon components
-│   ├── actions/                # Handlers for executing operations (e.g., RPC calls)
-│   ├── configs/                # Configuration files for the application
-│   ├── errors/                 # Error handling utilities
-│   ├── hooks/                  # Custom React hooks
-│   ├── locales/                # Internationalization files
-│   ├── states/                 # State management
-│   ├── stories/                # Storybook documentation and stories not related to components
-│   ├── styles/                 # CSS and style definitions
-│   ├── types/                  # Global TypeScript type declarations and definitions
-│   └── utils/                  # General utility functions
+│   ├── features/               # Business features
+│   │   └── hello-world/        # Example feature
+│   │       └── components/     # Feature components
+│   │           ├── hello-world.tsx           # Component implementation
+│   │           ├── hello-world.test.tsx      # Unit tests (co-located)
+│   │           └── hello-world.stories.tsx   # Storybook stories (co-located)
+│   └── shared/                 # Cross-feature shared code
+│       ├── actions/            # Shared actions
+│       ├── assets/             # Shared static assets
+│       ├── components/         # Shared components
+│       │   └── app-shell/      # App-shell components
+│       │       └── providers.tsx
+│       ├── configs/            # Shared configuration
+│       ├── errors/             # Shared error handling utilities
+│       ├── hooks/              # Shared hooks
+│       ├── locales/            # Internationalization files
+│       ├── states/             # Shared state management
+│       ├── styles/             # Shared styles (globals.css)
+│       ├── svgs/               # Shared SVG icon components
+│       ├── types/              # Shared TypeScript types
+│       └── utils/              # Shared utility functions
+├── stories/                    # Cross-feature Storybook docs/stories
 ├── tests/                      # Test files
 │   └── e2e/                    # End-to-end tests
 ├── .gitignore                  # App-specific git ignore rules

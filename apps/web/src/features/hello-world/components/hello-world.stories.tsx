@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { expect, within } from 'storybook/test';
-import { HelloWorld } from '@/components/hello-world/hello-world';
+import { HelloWorld } from '@/features/hello-world/components/hello-world';
 
 const meta: Meta<typeof HelloWorld> = {
   title: 'Components/HelloWorld',

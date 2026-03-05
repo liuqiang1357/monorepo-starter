@@ -1,4 +1,4 @@
-import '../src/styles/globals.css';
+import '../src/shared/styles/globals.css';
 import { DocsContainer, type DocsContainerProps } from '@storybook/addon-docs/blocks';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/nextjs-vite';
