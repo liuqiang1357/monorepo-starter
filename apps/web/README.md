@@ -22,49 +22,31 @@ Structure relative to `apps/web`:
 .
 ├── .storybook/                 # Storybook configuration
 ├── src/                        # Application source
-│   ├── app/                    # Next.js app router pages and layouts
-│   ├── features/               # Business features
-│   │   ├── app-shell/          # Composition feature for app-level wiring
-│   │   │   └── components/     # App-shell components used by router layouts
-│   │   │       └── providers.tsx           # Theme/global providers wrapper
-│   │   └── hello-world/        # Example feature
-│   │       └── components/     # Feature components
-│   │           ├── hello-world.tsx           # Component implementation
-│   │           ├── hello-world.test.tsx      # Unit tests (co-located)
-│   │           └── hello-world.stories.tsx   # Storybook stories (co-located)
-│   └── shared/                 # Cross-feature shared code
-│       ├── actions/            # Shared actions
-│       ├── assets/             # Shared static assets
-│       ├── components/         # Shared components
-│       ├── configs/            # Shared configuration
-│       ├── errors/             # Shared error handling utilities
-│       ├── hooks/              # Shared hooks
-│       ├── locales/            # Internationalization files
-│       ├── states/             # Shared state management
-│       ├── styles/             # Shared styles (globals.css)
-│       ├── svgs/               # Shared SVG icon components
-│       ├── types/              # Shared TypeScript types
-│       └── utils/              # Shared utility functions
-├── stories/                    # Cross-feature Storybook docs/stories
-├── tests/                      # Test files
-│   └── e2e/                    # End-to-end tests
-├── .gitignore                  # App-specific git ignore rules
-├── cloudflare-env.d.ts         # Cloudflare Workers env type definitions
-├── eslint.config.js            # ESLint configuration
-├── lint-staged.config.js       # Lint-staged configuration
-├── next.config.ts              # Next.js configuration
-├── open-next.config.ts         # OpenNext configuration
+│   ├── app/                    # Next.js App Router pages and layouts
+│   ├── features/               # Feature modules (business-oriented)
+│   └── shared/                 # Cross-feature reusable modules
+├── stories/                    # Storybook docs/stories
+├── tests/                      # Test files (e2e, etc.)
 ├── package.json                # Package manifest
-├── playwright.config.ts        # Playwright configuration
-├── postcss.config.js           # PostCSS configuration
-├── prettier.config.js          # Prettier configuration
-├── README.md                   # App documentation
-├── tsconfig.json               # TypeScript configuration
-├── turbo.json                  # Turborepo pipeline configuration
-├── vitest.config.ts            # Vitest configuration
-├── vitest.setup.ts             # Vitest setup
-└── wrangler.jsonc              # Cloudflare Wrangler configuration
+└── ...                         # Tooling/config files
 ```
+
+### Common directories under `features/*` or `shared/*`
+
+Create these folders inside a feature module or inside `shared` as needed.
+
+- `components/`: UI components
+- `hooks/`: React hooks
+- `actions/`: API/server actions and data mapping
+- `states/`: state atoms/stores
+- `utils/`: utility functions
+- `types/`: TypeScript types
+- `assets/`: static assets
+- `configs/`: constants/configuration
+- `styles/`: styles/design tokens
+- `errors/`: error types/handlers
+- `locales/`: i18n resources
+- `svgs/`: SVG/icon components
 
 ## Getting Started
 
